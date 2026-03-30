@@ -1,0 +1,1342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>KitabGhar Nepal — Premium Online Book Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--primary:#0f172a;--primary-light:#1e293b;--secondary:#e11d48;--accent:#f59e0b;--bg:#f8fafc;--white:#fff;--text:#1e293b;--light-text:#64748b;--border:#e2e8f0;--success:#059669;--danger:#dc2626;--info:#2563eb;--warning:#d97706;--shadow:0 1px 3px rgba(0,0,0,.1);--shadow-md:0 4px 6px rgba(0,0,0,.07);--shadow-lg:0 10px 25px rgba(0,0,0,.1);--shadow-xl:0 20px 40px rgba(0,0,0,.12);--radius:12px;--radius-lg:16px;--t:all .3s cubic-bezier(.4,0,.2,1)}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:var(--secondary);border-radius:10px}
+    a{text-decoration:none;color:inherit}button,input,select,textarea{font-family:inherit}
+    .announce{background:linear-gradient(90deg,var(--secondary),#be123c);color:#fff;text-align:center;padding:8px;font-size:12px;font-weight:600}
+    .announce span{animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.75}}
+    .header{background:var(--white);box-shadow:var(--shadow-md);position:sticky;top:0;z-index:1000}
+    .header-inner{max-width:1280px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--secondary),#f43f5e);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px}
+    .logo h1{font-size:20px;font-weight:900;color:var(--primary);line-height:1}
+    .logo small{display:block;font-size:10px;color:var(--light-text);letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-top:2px}
+    .search-box{flex:1;max-width:520px;position:relative}
+    .search-box input{width:100%;padding:11px 20px 11px 42px;border:2px solid var(--border);border-radius:50px;font-size:13px;outline:none;transition:var(--t)}
+    .search-box input:focus{border-color:var(--secondary);box-shadow:0 0 0 3px rgba(225,29,72,.1)}
+    .search-box>i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--light-text)}
+    .h-actions{display:flex;align-items:center;gap:10px}
+    .h-btn{position:relative;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;transition:var(--t)}
+    .h-btn:hover{background:var(--bg);color:var(--secondary)}
+    .h-btn .dot{position:absolute;top:3px;right:3px;background:var(--secondary);color:#fff;width:17px;height:17px;border-radius:50%;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:800}
+    .wa-btn{background:#25D366;color:#fff;border:none;padding:9px 16px;border-radius:50px;font-size:12px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:6px;transition:var(--t)}
+    .wa-btn:hover{background:#1da851;transform:translateY(-1px)}
+    .nav{background:var(--primary);overflow-x:auto}
+    .nav-inner{max-width:1280px;margin:0 auto;display:flex;padding:0 20px}
+    .nav-item{color:#fff;padding:12px 18px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:var(--t);border-bottom:2px solid transparent}
+    .nav-item:hover,.nav-item.active{background:rgba(255,255,255,.08);border-bottom-color:var(--secondary)}
+    .nav-item i{margin-right:5px}.nav-right{margin-left:auto}
+    .admin-trigger{color:rgba(255,255,255,.35);padding:12px;font-size:11px;font-weight:700;cursor:pointer;transition:var(--t)}
+    .admin-trigger:hover{color:var(--accent)}
+    .hero{background:linear-gradient(135deg,#0f172a 0%,#1e293b 40%,#334155 100%);color:#fff;padding:60px 20px;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-50%;right:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(225,29,72,.12),transparent 70%);border-radius:50%}
+    .hero>*{position:relative;z-index:1}
+    .hero-badge{display:inline-block;background:rgba(225,29,72,.2);color:#ffd1db;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:800;margin-bottom:14px;border:1px solid rgba(225,29,72,.35)}
+    .hero h2{font-size:36px;font-weight:900;margin-bottom:10px;line-height:1.2}
+    .hero h2 span{color:var(--accent)}
+    .hero p{font-size:15px;opacity:.85;max-width:580px;margin:0 auto 25px}
+    .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .hero-btn{padding:13px 32px;border-radius:50px;font-size:14px;font-weight:900;cursor:pointer;border:none;transition:var(--t);display:inline-flex;align-items:center;gap:8px}
+    .hero-btn.primary{background:var(--secondary);color:#fff}.hero-btn.primary:hover{background:#be123c;transform:translateY(-2px);box-shadow:0 8px 25px rgba(225,29,72,.3)}
+    .hero-btn.outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3)}.hero-btn.outline:hover{border-color:#fff;background:rgba(255,255,255,.05)}
+    .feat-bar{background:var(--white);border-bottom:1px solid var(--border);padding:14px 20px}
+    .feat-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .feat-item{display:flex;align-items:center;gap:8px;justify-content:center}
+    .feat-item i{font-size:18px;color:var(--secondary)}
+    .feat-item strong{font-size:11px;display:block;font-weight:900}
+    .feat-item span{font-size:10px;color:var(--light-text);font-weight:700}
+    .section{max-width:1280px;margin:30px auto;padding:0 20px}
+    .section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .section-title{font-size:18px;font-weight:900;display:flex;align-items:center;gap:8px}
+    .section-title i{color:var(--secondary)}
+    .cat-grid{display:flex;gap:10px;overflow-x:auto;padding-bottom:5px}
+    .cat-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius);padding:14px 22px;text-align:center;min-width:110px;cursor:pointer;transition:var(--t)}
+    .cat-card:hover,.cat-card.active{border-color:var(--secondary);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .cat-card.active{background:linear-gradient(135deg,var(--secondary),#f43f5e);color:#fff;border-color:var(--secondary)}
+    .cat-card.active i{color:#fff}
+    .cat-card i{font-size:20px;color:var(--secondary);display:block;margin-bottom:4px}
+    .cat-card span{font-size:11px;font-weight:900}
+    .p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px}
+    .p-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--t);position:relative;border:1px solid var(--border)}
+    .p-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+    .p-badge{position:absolute;top:8px;left:8px;background:var(--secondary);color:#fff;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:900;z-index:2}
+    .p-disc{position:absolute;top:8px;right:8px;background:var(--success);color:#fff;padding:3px 8px;border-radius:20px;font-size:10px;font-weight:900;z-index:2}
+    .p-img{height:220px;background:linear-gradient(135deg,#f1f5f9,#e2e8f0);display:flex;align-items:center;justify-content:center;font-size:60px}
+    .p-info{padding:12px}
+    .p-cat{font-size:9px;color:var(--secondary);font-weight:900;text-transform:uppercase;letter-spacing:1.5px}
+    .p-title{font-size:13px;font-weight:900;margin:3px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
+    .p-author{font-size:10px;color:var(--light-text);margin-bottom:5px;font-weight:700}
+    .p-stars{color:var(--accent);font-size:10px;margin-bottom:6px;font-weight:900}
+    .p-stars span{color:var(--light-text);margin-left:3px;font-weight:800}
+    .p-price{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+    .p-price .now{font-size:16px;font-weight:900;color:var(--success)}
+    .p-price .was{font-size:12px;color:var(--light-text);text-decoration:line-through;font-weight:800}
+    .add-btn{width:100%;background:var(--primary);color:#fff;border:none;padding:8px;border-radius:8px;font-size:11px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;transition:var(--t)}
+    .add-btn:hover{background:var(--secondary)}
+    .overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:9998;display:none;backdrop-filter:blur(4px)}
+    .overlay.on{display:block}
+    .cart-side{position:fixed;top:0;right:-440px;width:400px;max-width:94vw;height:100%;background:var(--white);z-index:9999;box-shadow:-5px 0 30px rgba(0,0,0,.15);transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+    .cart-side.on{right:0}
+    .cs-head{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
+    .cs-head h3{font-size:15px;display:flex;align-items:center;gap:8px;font-weight:900}
+    .cs-close{background:none;border:none;color:#fff;font-size:20px;cursor:pointer}
+    .cs-body{flex:1;overflow-y:auto;padding:12px}
+    .cs-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);align-items:center}
+    .cs-item-img{width:45px;height:55px;background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .cs-item-info{flex:1}
+    .cs-item-title{font-size:11px;font-weight:900;line-height:1.3}
+    .cs-item-price{font-size:12px;font-weight:900;color:var(--success)}
+    .cs-item-qty{display:flex;align-items:center;gap:5px;margin-top:3px}
+    .qb{width:22px;height:22px;border:1px solid var(--border);background:var(--bg);border-radius:4px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:var(--t)}
+    .qb:hover{background:var(--secondary);color:#fff;border-color:var(--secondary)}
+    .cs-rm{background:none;border:none;color:var(--danger);cursor:pointer;font-size:14px}
+    .cs-foot{padding:16px;border-top:2px solid var(--border)}
+    .cs-row{display:flex;justify-content:space-between;font-size:12px;color:var(--light-text);margin-bottom:4px;font-weight:900}
+    .cs-total-row{display:flex;justify-content:space-between;font-size:16px;font-weight:900;margin:8px 0 12px;padding-top:8px;border-top:1px dashed var(--border)}
+    .cs-btn{width:100%;padding:12px;border:none;border-radius:10px;font-size:13px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:var(--t);margin-bottom:8px}
+    .cs-btn.green{background:var(--success);color:#fff}.cs-btn.green:hover{background:#047857}
+    .cs-btn.wa{background:#25D366;color:#fff}.cs-btn.wa:hover{background:#1da851}
+    .empty-cart{text-align:center;padding:50px 15px;color:var(--light-text);font-weight:900}
+    .empty-cart i{font-size:45px;color:#e2e8f0;display:block;margin-bottom:10px}
+    .modal-ov{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:99999;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:25px 15px;backdrop-filter:blur(4px)}
+    .modal-ov.on{display:flex}
+    .modal{background:var(--white);border-radius:var(--radius-lg);width:100%;overflow:hidden;box-shadow:var(--shadow-xl);animation:slideUp .3s ease}
+    @keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+    .modal-sm{max-width:460px}.modal-md{max-width:720px}.modal-lg{max-width:980px}
+    .m-head{background:linear-gradient(135deg,var(--primary),#334155);color:#fff;padding:22px;text-align:center;position:relative}
+    .m-head i.icon{font-size:28px;margin-bottom:6px;color:var(--accent);display:block}
+    .m-head h3{font-size:17px;font-weight:900}
+    .m-head p{font-size:11px;opacity:.7;margin-top:3px;font-weight:800}
+    .m-close{position:absolute;top:12px;right:14px;background:none;border:none;color:rgba(255,255,255,.6);font-size:20px;cursor:pointer;z-index:2}
+    .m-close:hover{color:#fff}
+    .m-body{padding:22px;max-height:70vh;overflow-y:auto}
+    .fg{margin-bottom:14px}
+    .fg label{font-size:11px;font-weight:900;display:block;margin-bottom:4px}
+    .fg .req{color:var(--secondary)}
+    .fi{width:100%;padding:10px 13px;border:2px solid var(--border);border-radius:8px;font-size:13px;outline:none;transition:var(--t)}
+    .fi:focus{border-color:var(--secondary);box-shadow:0 0 0 3px rgba(225,29,72,.08)}
+    .fi-wrap{position:relative}.fi-wrap i{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--light-text);font-size:13px}
+    .fi-wrap input,.fi-wrap select{padding-left:34px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    select.fi{appearance:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 12px center;padding-right:32px}
+    textarea.fi{resize:vertical;min-height:55px}
+    .form-err{background:#fef2f2;color:var(--danger);padding:9px 12px;border-radius:8px;font-size:12px;margin-bottom:10px;display:none;align-items:center;gap:6px;font-weight:900}
+    .form-err.show{display:flex}
+    .steps{display:flex;justify-content:center;margin-bottom:20px;background:var(--bg);border-radius:10px;overflow:hidden}
+    .step{flex:1;padding:11px;text-align:center;font-size:10px;font-weight:900;color:var(--light-text);transition:var(--t)}
+    .step.active{background:var(--secondary);color:#fff}
+    .step.done{background:var(--success);color:#fff}
+    .step i{display:block;font-size:15px;margin-bottom:2px}
+    .pay-opts{display:grid;gap:8px;margin-bottom:12px}
+    .pay-opt{border:2px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:var(--t)}
+    .pay-opt:hover{border-color:var(--info)}
+    .pay-opt.sel{border-color:var(--secondary);background:#fff1f2}
+    .pay-radio{width:16px;height:16px;border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .pay-opt.sel .pay-radio{border-color:var(--secondary)}
+    .pay-opt.sel .pay-radio::after{content:'';width:8px;height:8px;background:var(--secondary);border-radius:50%}
+    .pay-ico{font-size:20px;width:36px;text-align:center}
+    .pay-lbl{flex:1}.pay-lbl strong{font-size:12px;display:block;font-weight:900}.pay-lbl span{font-size:10px;color:var(--light-text);font-weight:800}
+    .o-sum{background:var(--bg);border-radius:10px;padding:14px;margin-bottom:12px;border:1px solid var(--border)}
+    .os-row{display:flex;justify-content:space-between;font-size:11px;padding:5px 0;border-bottom:1px solid var(--border);font-weight:900}
+    .os-row:last-child{border:none}
+    .os-total{display:flex;justify-content:space-between;font-size:14px;font-weight:900;padding-top:8px;border-top:2px solid var(--border);margin-top:4px}
+    .qr-wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0}
+    .qr-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px;box-shadow:var(--shadow)}
+    .qr-box{width:180px;height:180px;display:flex;align-items:center;justify-content:center}
+    .qr-note{flex:1;min-width:200px}
+    .qr-note p{font-size:11px;color:var(--light-text);margin-bottom:6px;font-weight:900}
+    .qr-note ul{margin:0;padding-left:18px;font-size:11px;color:var(--light-text);font-weight:800}
+    .success-box{text-align:center;padding:25px}
+    .success-icon{width:70px;height:70px;border-radius:50%;background:var(--success);display:flex;align-items:center;justify-content:center;margin:0 auto 15px;animation:scaleIn .5s}
+    .success-icon i{font-size:30px;color:#fff}
+    @keyframes scaleIn{from{transform:scale(0)}to{transform:scale(1)}}
+    .oc{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px;transition:var(--t)}
+    .oc:hover{box-shadow:var(--shadow-md)}
+    .oc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+    .oc-id{font-weight:900;font-size:13px;color:var(--primary)}
+    .sbadge{padding:3px 10px;border-radius:20px;font-size:10px;font-weight:900}
+    .s-pending{background:#fef3c7;color:#92400e}.s-confirmed{background:#dbeafe;color:#1e40af}
+    .s-shipped{background:#e0e7ff;color:#3730a3}.s-delivered{background:#d1fae5;color:#065f46}
+    .s-cancelled{background:#fee2e2;color:#991b1b}
+    .oc-meta{font-size:11px;color:var(--light-text);display:grid;grid-template-columns:1fr 1fr;gap:3px;font-weight:800}
+    .oc-items{margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;font-weight:800}
+    .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:10px;font-weight:900}
+    .pill.unpaid{background:#fffbeb;color:#92400e;border:1px solid #fcd34d}
+    .pill.paid{background:#ecfdf5;color:#065f46;border:1px solid #34d399}
+    .pill.small{font-size:9px;padding:3px 8px}
+    .timeline{display:flex;margin-top:10px}
+    .tl-s{flex:1;text-align:center;position:relative;padding-top:16px;font-size:9px;color:var(--light-text);font-weight:900}
+    .tl-s::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:var(--border)}
+    .tl-s.done::before{background:var(--success)}.tl-s.now::before{background:var(--info);box-shadow:0 0 0 3px rgba(37,99,235,.2)}
+    .tl-s:not(:last-child)::after{content:'';position:absolute;top:5px;left:calc(50% + 7px);width:calc(100% - 14px);height:2px;background:var(--border)}
+    .tl-s.done:not(:last-child)::after{background:var(--success)}
+    .admin{display:none;min-height:100vh;background:var(--bg)}.admin.on{display:block}.store.hide{display:none}
+    .ah{background:linear-gradient(135deg,var(--primary),#334155);color:#fff;padding:12px 22px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:var(--shadow-lg);flex-wrap:wrap;gap:8px}
+    .ah-left{display:flex;align-items:center;gap:8px}.ah-left i{font-size:20px;color:var(--accent)}.ah-left h2{font-size:15px;font-weight:900}
+    .ah-tabs{display:flex;gap:2px;background:rgba(255,255,255,.08);border-radius:8px;padding:3px;flex-wrap:wrap}
+    .ah-tab{padding:7px 14px;border-radius:6px;font-size:11px;font-weight:900;cursor:pointer;color:rgba(255,255,255,.6);transition:var(--t)}
+    .ah-tab:hover{color:#fff}.ah-tab.on{background:var(--secondary);color:#fff}
+    .ah-right{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+    .ab{padding:6px 14px;border:none;border-radius:7px;font-size:11px;font-weight:900;cursor:pointer;display:flex;align-items:center;gap:5px;transition:var(--t)}
+    .ac{max-width:1280px;margin:18px auto;padding:0 20px}
+    .acard{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:18px;overflow:hidden;border:1px solid var(--border)}
+    .acard-h{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+    .acard-h h3{font-size:13px;font-weight:900;display:flex;align-items:center;gap:6px}
+    .acard-b{padding:18px}
+    .astats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:18px}
+    .astat{background:var(--white);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;border:1px solid var(--border);transition:var(--t)}
+    .astat:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .astat-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
+    .astat h4{font-size:20px;font-weight:900}.astat span{font-size:10px;color:var(--light-text);font-weight:800}
+    .at{width:100%;border-collapse:collapse;font-size:11px}
+    .at th{background:var(--bg);padding:9px 10px;text-align:left;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--light-text);border-bottom:2px solid var(--border)}
+    .at td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:middle}
+    .at tr:hover{background:#f8fafc}
+    .tb{padding:4px 10px;border:none;border-radius:5px;font-size:10px;cursor:pointer;transition:var(--t);font-weight:900}
+    .tb.edit{background:var(--info);color:#fff}.tb.del{background:var(--danger);color:#fff}
+    .tb.view{background:var(--success);color:#fff}.tb.warn{background:var(--warning);color:#fff}
+    .ssel{padding:4px 6px;border:1px solid var(--border);border-radius:5px;font-size:10px;cursor:pointer;font-weight:900}
+    .od-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px}
+    .od-box{background:var(--bg);border-radius:10px;padding:14px;border:1px solid var(--border)}
+    .od-box h4{font-size:12px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:6px;color:var(--primary)}
+    .od-box h4 i{color:var(--secondary)}
+    .od-row{font-size:11px;margin-bottom:4px;display:flex;justify-content:space-between;font-weight:900}
+    .od-label{color:var(--light-text);min-width:90px}.od-val{font-weight:900;color:var(--text);word-break:break-all}
+    .od-item{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-size:11px;font-weight:900}
+    .od-item:last-child{border:none}
+    .od-item-emoji{font-size:22px}.od-item-info{flex:1}.od-item-title{font-weight:900}
+    .od-item-meta{color:var(--light-text);font-size:10px;font-weight:900}.od-item-price{font-weight:900;color:var(--success)}
+    .od-total-bar{background:linear-gradient(135deg,var(--primary),#334155);color:#fff;border-radius:10px;padding:16px;display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:18px;font-weight:900}
+    .od-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+    .od-btn{padding:10px 18px;border:none;border-radius:8px;font-size:12px;font-weight:900;cursor:pointer;display:flex;align-items:center;gap:6px;transition:var(--t)}
+    .tab-c{display:none}.tab-c.on{display:block}
+    .loading-bar{position:fixed;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#3ecf8e,#1a9963,#3ecf8e);background-size:200%;animation:ldg 1.5s infinite;z-index:99999999;display:none}
+    .loading-bar.on{display:block}@keyframes ldg{0%{background-position:200%}100%{background-position:0%}}
+    .sb-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px}
+    .invoice{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .inv-head{background:linear-gradient(135deg,var(--primary),#334155);color:#fff;padding:20px}
+    .inv-head h2{font-size:18px;font-weight:900}.inv-head p{font-size:11px;opacity:.8;font-weight:800}
+    .inv-body{padding:18px}
+    .inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+    .inv-box{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px}
+    .inv-box h4{font-size:11px;font-weight:900;margin-bottom:6px;color:var(--primary)}
+    .inv-box p{font-size:11px;font-weight:800;color:var(--text);margin-bottom:3px}
+    .inv-box p span{color:var(--light-text)}
+    .inv-table{width:100%;border-collapse:collapse;font-size:11px}
+    .inv-table th{background:var(--bg);text-align:left;padding:10px;border-bottom:2px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--light-text);font-weight:900}
+    .inv-table td{padding:10px;border-bottom:1px solid var(--border);vertical-align:top;font-weight:800}
+    .inv-totals{margin-top:12px;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px}
+    .inv-row{display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px;font-weight:900}
+    .inv-row.total{font-size:14px;margin-top:8px;padding-top:8px;border-top:2px solid var(--border)}
+    .inv-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:10px;font-weight:900}
+    .inv-badge.unpaid{background:#fffbeb;color:#92400e;border:1px solid #fcd34d}
+    .inv-badge.paid{background:#ecfdf5;color:#065f46;border:1px solid #34d399}
+    .inv-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .inv-actions button{padding:10px 16px;border:none;border-radius:10px;font-weight:900;cursor:pointer;transition:var(--t);display:flex;align-items:center;gap:6px;font-size:12px}
+    .btn-pdf{background:var(--info);color:#fff}.btn-wa-inv{background:#25D366;color:#fff}.btn-close-inv{background:var(--bg);border:1px solid var(--border)!important;color:var(--text)}
+    .footer{background:linear-gradient(135deg,var(--primary),#1e293b);color:#fff;padding:35px 20px 18px;margin-top:40px}
+    .footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:25px}
+    .footer h4{font-size:13px;margin-bottom:12px;color:var(--accent);font-weight:900}
+    .footer p,.footer a{font-size:11px;color:#94a3b8;display:block;margin-bottom:5px;transition:var(--t);font-weight:800}
+    .footer a:hover{color:var(--accent);padding-left:3px}
+    .footer-btm{max-width:1280px;margin:20px auto 0;padding-top:15px;border-top:1px solid rgba(255,255,255,.06);text-align:center;font-size:10px;color:#475569;font-weight:800}
+    .toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(100px);padding:11px 20px;border-radius:10px;font-size:12px;font-weight:900;z-index:9999999;transition:transform .4s;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:8px;max-width:90vw}
+    .toast.show{transform:translateX(-50%) translateY(0)}.toast.success{background:var(--success);color:#fff}.toast.error{background:var(--danger);color:#fff}.toast.info{background:var(--info);color:#fff}
+    .cfm-ov{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:9999999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+    .cfm-ov.on{display:flex}
+    .cfm-box{background:#fff;border-radius:var(--radius-lg);padding:28px;text-align:center;max-width:360px;width:90%;animation:slideUp .3s}
+    .cfm-box i{font-size:40px;color:var(--danger);margin-bottom:10px}
+    .cfm-box h4{font-size:15px;margin-bottom:5px;font-weight:900}.cfm-box p{font-size:11px;color:var(--light-text);margin-bottom:15px;font-weight:800}
+    .cfm-btns{display:flex;gap:8px;justify-content:center}
+    .cfm-btns button{padding:8px 20px;border:none;border-radius:8px;font-size:12px;font-weight:900;cursor:pointer}
+    @media print{body{background:#fff}.admin,.header,.nav,.hero,.feat-bar,.footer,.announce,.overlay,.cart-side,.toast,.m-close,.inv-actions,.od-actions,.ah,.loading-bar{display:none!important}.modal-ov{position:relative!important;display:block!important;background:none!important;padding:0!important;backdrop-filter:none!important}.modal{box-shadow:none!important;border-radius:0!important}.m-body{max-height:none!important;overflow:visible!important}.invoice{border:none!important}}
+    @media(max-width:768px){.header-inner{flex-direction:column;gap:8px}.search-box{max-width:100%;order:3}.hero h2{font-size:24px}.p-grid{grid-template-columns:repeat(2,1fr);gap:10px}.p-img{height:150px;font-size:42px}.p-info{padding:8px}.p-title{font-size:11px}.p-price .now{font-size:14px}.feat-inner{grid-template-columns:repeat(2,1fr)}.form-row{grid-template-columns:1fr}.ah{flex-direction:column;gap:6px}.od-grid{grid-template-columns:1fr}.oc-meta{grid-template-columns:1fr}.qr-box{width:160px;height:160px}.inv-grid{grid-template-columns:1fr}}
+    @media(max-width:480px){.p-grid{grid-template-columns:repeat(2,1fr);gap:8px}.astats{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<div class="loading-bar" id="loadingBar"></div>
+
+<!-- STORE FRONT -->
+<div class="store" id="store">
+  <div class="announce"><span>🎉 FREE DELIVERY above NPRs 2,000 • WhatsApp: <strong>+977 9824857999</strong> • Powered by Supabase 🟢</span></div>
+  <header class="header"><div class="header-inner">
+    <a href="#" class="logo" onclick="location.reload()"><div class="logo-icon">📚</div><div><h1>KitabGhar</h1><small>Nepal Online Book Store</small></div></a>
+    <div class="search-box"><i class="fas fa-search"></i><input id="searchInput" placeholder="Search books, authors..." oninput="renderProducts()"/></div>
+    <div class="h-actions">
+      <button class="h-btn" onclick="openTracker()" title="Track Order"><i class="fas fa-truck"></i></button>
+      <button class="h-btn" onclick="openMyOrders()" title="My Orders"><i class="fas fa-box"></i><span class="dot" id="myOrdDot" style="display:none">0</span></button>
+      <button class="h-btn" onclick="toggleCart()" title="Cart"><i class="fas fa-shopping-cart"></i><span class="dot" id="cartDot">0</span></button>
+      <button class="wa-btn" onclick="openWA()"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+    </div>
+  </div></header>
+
+  <nav class="nav"><div class="nav-inner">
+    <div class="nav-item active" onclick="selCat('all',this)"><i class="fas fa-home"></i>Home</div>
+    <div class="nav-item" onclick="selCat('Novels',this)"><i class="fas fa-book"></i>Novels</div>
+    <div class="nav-item" onclick="selCat('Islamic',this)"><i class="fas fa-mosque"></i>Islamic</div>
+    <div class="nav-item" onclick="selCat('Poetry',this)"><i class="fas fa-feather-alt"></i>Poetry</div>
+    <div class="nav-item" onclick="selCat('Children',this)"><i class="fas fa-child"></i>Children</div>
+    <div class="nav-item" onclick="selCat('Education',this)"><i class="fas fa-graduation-cap"></i>Education</div>
+    <div class="nav-item" onclick="selCat('Self-Help',this)"><i class="fas fa-heart"></i>Self-Help</div>
+    <div class="nav-right"><span class="admin-trigger" onclick="openLogin()"><i class="fas fa-lock"></i> Admin</span></div>
+  </div></nav>
+
+  <section class="hero">
+    <div class="hero-badge">🟢 Supabase PostgreSQL • Real-time • 100% Free • No Card</div>
+    <h2>Your Favourite Books,<br><span>Delivered Across Nepal</span></h2>
+    <p>Order online, pay with eSewa/Khalti QR, track order, download invoice PDF.</p>
+    <div class="hero-btns">
+      <button class="hero-btn primary" onclick="document.getElementById('prodSec').scrollIntoView({behavior:'smooth'})"><i class="fas fa-shopping-bag"></i>Shop Now</button>
+      <button class="hero-btn outline" onclick="openTracker()"><i class="fas fa-truck"></i>Track Order</button>
+    </div>
+  </section>
+
+  <div class="feat-bar"><div class="feat-inner">
+    <div class="feat-item"><i class="fas fa-truck"></i><div><strong>Area Delivery</strong><span>Fee by Area</span></div></div>
+    <div class="feat-item"><i class="fas fa-qrcode"></i><div><strong>QR Payment</strong><span>eSewa / Khalti</span></div></div>
+    <div class="feat-item"><i class="fas fa-database"></i><div><strong>Supabase DB</strong><span>PostgreSQL</span></div></div>
+    <div class="feat-item"><i class="fas fa-file-invoice"></i><div><strong>Invoice PDF</strong><span>Download</span></div></div>
+  </div></div>
+
+  <section class="section"><div class="section-head"><h2 class="section-title"><i class="fas fa-th-large"></i>Categories</h2></div><div class="cat-grid" id="catGrid"></div></section>
+  <section class="section" id="prodSec"><div class="section-head"><h2 class="section-title"><i class="fas fa-book"></i>Our Collection <span id="pCnt" style="font-size:12px;color:var(--light-text);font-weight:800"></span></h2></div><div class="p-grid" id="pGrid"><div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--light-text)"><i class="fas fa-circle-notch fa-spin" style="font-size:30px;display:block;margin-bottom:10px;color:#3ecf8e"></i>Loading from Supabase...</div></div></section>
+
+  <footer class="footer"><div class="footer-grid">
+    <div><h4>📚 KitabGhar Nepal</h4><p>Doorstep delivery across Nepal. Powered by Supabase 🟢</p></div>
+    <div><h4>Quick Links</h4><a href="#" onclick="openMyOrders()">My Orders</a><a href="#" onclick="openTracker()">Track Order</a></div>
+    <div><h4>Payment</h4><p>QR: eSewa / Khalti</p><p>COD: Available</p></div>
+    <div><h4>Contact</h4><p><i class="fab fa-whatsapp"></i> +977 9824857999</p><p><i class="fas fa-map-marker-alt"></i> Nepal 🇳🇵</p></div>
+  </div><div class="footer-btm">© 2026 KitabGhar Nepal. All Rights Reserved. | 🟢 Supabase</div></footer>
+</div>
+
+<!-- CART -->
+<div class="overlay" id="cartOv" onclick="toggleCart()"></div>
+<div class="cart-side" id="cartSide">
+  <div class="cs-head"><h3><i class="fas fa-shopping-cart"></i> Cart</h3><button class="cs-close" onclick="toggleCart()"><i class="fas fa-times"></i></button></div>
+  <div class="cs-body" id="cartBody"></div>
+  <div class="cs-foot" id="cartFoot" style="display:none">
+    <div class="cs-row"><span>Subtotal</span><span id="cSub">NPRs 0</span></div>
+    <div class="cs-row"><span>Delivery</span><span id="cDel">NPRs 0</span></div>
+    <div class="cs-total-row"><span>Total</span><span id="cTot">NPRs 0</span></div>
+    <button class="cs-btn green" onclick="openCheckout()"><i class="fas fa-lock"></i> Proceed to Checkout</button>
+    <button class="cs-btn wa" onclick="waCartOrder()"><i class="fab fa-whatsapp"></i> WhatsApp Order</button>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<div class="modal-ov" id="checkMod"><div class="modal modal-md" style="position:relative">
+  <button class="m-close" onclick="closeMod('checkMod')"><i class="fas fa-times"></i></button>
+  <div class="m-head"><i class="icon fas fa-lock"></i><h3>Secure Checkout</h3><p>Supabase DB • Area Delivery • QR Payment</p></div>
+  <div class="m-body">
+    <div class="steps">
+      <div class="step active" id="st1"><i class="fas fa-user"></i>Details</div>
+      <div class="step" id="st2"><i class="fas fa-credit-card"></i>Payment</div>
+      <div class="step" id="st3"><i class="fas fa-check"></i>Confirm</div>
+    </div>
+    <!-- Step 1 -->
+    <div id="cs1">
+      <div class="form-err" id="e1"><i class="fas fa-exclamation-circle"></i><span id="e1t"></span></div>
+      <div class="form-row">
+        <div class="fg"><label>Full Name <span class="req">*</span></label><div class="fi-wrap"><i class="fas fa-user"></i><input class="fi" id="cName" placeholder="Your name"></div></div>
+        <div class="fg"><label>Phone <span class="req">*</span></label><div class="fi-wrap"><i class="fas fa-phone"></i><input class="fi" id="cPhone" placeholder="98XXXXXXXX"></div></div>
+      </div>
+      <div class="fg"><label>Email</label><div class="fi-wrap"><i class="fas fa-envelope"></i><input class="fi" id="cEmail" type="email" placeholder="optional"></div></div>
+      <div class="fg"><label>Delivery Address <span class="req">*</span></label><textarea class="fi" id="cAddr" placeholder="Full delivery address..."></textarea></div>
+      <div class="form-row">
+        <div class="fg"><label>Delivery Area <span class="req">*</span></label><select class="fi" id="cArea" onchange="onAreaChanged()"></select></div>
+        <div class="fg"><label>Notes</label><input class="fi" id="cNotes" placeholder="Optional"></div>
+      </div>
+      <button class="cs-btn green" onclick="goStep(2)"><i class="fas fa-arrow-right"></i> Continue to Payment</button>
+    </div>
+    <!-- Step 2 -->
+    <div id="cs2" style="display:none">
+      <div class="form-err" id="e2"><i class="fas fa-exclamation-circle"></i><span id="e2t"></span></div>
+      <h4 style="font-size:13px;margin-bottom:10px;font-weight:900">Payment Method</h4>
+      <div class="pay-opts">
+        <div class="pay-opt sel" onclick="selPay(this,'cod')"><div class="pay-radio"></div><div class="pay-ico">💵</div><div class="pay-lbl"><strong>Cash on Delivery</strong><span>Pay when delivered</span></div></div>
+        <div class="pay-opt" onclick="selPay(this,'esewa')"><div class="pay-radio"></div><div class="pay-ico">📱</div><div class="pay-lbl"><strong>eSewa / Khalti (QR)</strong><span>Scan QR and pay</span></div></div>
+        <div class="pay-opt" onclick="selPay(this,'bank')"><div class="pay-radio"></div><div class="pay-ico">🏦</div><div class="pay-lbl"><strong>Bank Transfer</strong><span>Transfer & enter reference</span></div></div>
+      </div>
+      <div id="pi_cod" class="o-sum"><p style="font-size:11px;font-weight:900"><i class="fas fa-info-circle" style="color:var(--info)"></i> COD fee: <strong>NPRs 50</strong>. Shows <strong>UNPAID</strong> until admin verifies.</p></div>
+      <div id="pi_esewa" style="display:none" class="o-sum">
+        <p style="font-size:11px;margin-bottom:6px;font-weight:900"><strong>Receiver:</strong> 9824857999 (KitabGhar)</p>
+        <div class="qr-wrap">
+          <div class="qr-card"><div id="esewaQr" class="qr-box"></div><div style="text-align:center;font-size:10px;color:var(--light-text);margin-top:6px;font-weight:900">Scan to pay</div></div>
+          <div class="qr-note"><p>After payment:</p><ul><li>Copy Transaction ID</li><li>Enter below</li><li><strong>UNPAID until admin verifies</strong></li></ul></div>
+        </div>
+        <div class="fg" style="margin-top:6px"><label>Transaction ID <span class="req">*</span></label><input class="fi" id="trxE" placeholder="e.g. ESW123456789"></div>
+      </div>
+      <div id="pi_bank" style="display:none" class="o-sum">
+        <p style="font-size:11px;font-weight:900;margin-bottom:6px">Bank: NIC Asia / Nepal Bank | A/C: 1234567890123 | Name: KitabGhar Books</p>
+        <div class="fg" style="margin-top:8px"><label>Reference Number <span class="req">*</span></label><input class="fi" id="trxB" placeholder="Reference/Transaction ID"></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button class="cs-btn" style="background:var(--bg);color:var(--text);border:1px solid var(--border)" onclick="goStep(1)"><i class="fas fa-arrow-left"></i> Back</button>
+        <button class="cs-btn green" onclick="goStep(3)"><i class="fas fa-arrow-right"></i> Review Order</button>
+      </div>
+    </div>
+    <!-- Step 3 -->
+    <div id="cs3" style="display:none"><div id="reviewBox"></div><div style="display:flex;gap:8px;margin-top:12px"><button class="cs-btn" style="background:var(--bg);color:var(--text);border:1px solid var(--border)" onclick="goStep(2)"><i class="fas fa-arrow-left"></i> Back</button><button class="cs-btn green" onclick="placeOrder()"><i class="fas fa-check-circle"></i> Place Order</button></div></div>
+    <!-- Step 4 -->
+    <div id="cs4" style="display:none"><div class="success-box"><div class="success-icon"><i class="fas fa-check"></i></div><h3 style="font-size:18px;margin-bottom:6px;font-weight:900">🎉 Order Placed!</h3><p style="font-size:12px;color:var(--light-text);margin-bottom:5px;font-weight:900">Saved to Supabase! 🟢</p><p style="font-size:11px;color:#92400e;font-weight:900;margin-bottom:12px">Payment shows <strong>UNPAID</strong> until admin verifies.</p><div class="o-sum" style="text-align:left"><p style="font-size:12px;font-weight:900"><strong>Order ID:</strong> <span id="sucId" style="color:var(--secondary);font-weight:900"></span></p></div><button class="cs-btn green" style="margin-top:12px" onclick="closeMod('checkMod');openMyOrders()"><i class="fas fa-box"></i> View Orders</button><button class="cs-btn" style="background:var(--bg);color:var(--text);border:1px solid var(--border)" onclick="closeMod('checkMod')"><i class="fas fa-shopping-bag"></i> Continue Shopping</button></div></div>
+  </div>
+</div></div>
+
+<!-- MY ORDERS -->
+<div class="modal-ov" id="myOrdMod"><div class="modal modal-lg" style="position:relative"><button class="m-close" onclick="closeMod('myOrdMod')"><i class="fas fa-times"></i></button><div class="m-head"><i class="icon fas fa-box"></i><h3>📦 My Orders</h3><p>Items • delivery • totals • invoice</p></div><div class="m-body" id="myOrdBody"></div></div></div>
+
+<!-- TRACKER -->
+<div class="modal-ov" id="trkMod"><div class="modal modal-sm" style="position:relative"><button class="m-close" onclick="closeMod('trkMod')"><i class="fas fa-times"></i></button><div class="m-head"><i class="icon fas fa-truck"></i><h3>🚚 Track Your Order</h3><p>Enter Order ID</p></div><div class="m-body"><div style="display:flex;gap:8px"><input class="fi" id="trkIn" placeholder="e.g. KG-10001"><button class="cs-btn green" style="max-width:120px" onclick="trackOrder()">Track</button></div><div id="trkRes"></div></div></div></div>
+
+<!-- LOGIN -->
+<div class="modal-ov" id="loginMod"><div class="modal modal-sm" style="position:relative"><button class="m-close" onclick="closeMod('loginMod')"><i class="fas fa-times"></i></button><div class="m-head"><i class="icon fas fa-shield-alt"></i><h3>🔐 Admin Login</h3><p>Owner only</p></div><div class="m-body"><div class="form-err" id="logErr"><i class="fas fa-exclamation-circle"></i><span id="logErrT"></span></div><div class="fg"><label>Username</label><div class="fi-wrap"><i class="fas fa-user"></i><input class="fi" id="aU" autocomplete="off"></div></div><div class="fg"><label>Password</label><div class="fi-wrap"><i class="fas fa-lock"></i><input class="fi" id="aP" type="password" onkeydown="if(event.key==='Enter')doLogin()"></div></div><button class="cs-btn green" onclick="doLogin()"><i class="fas fa-sign-in-alt"></i> Login</button><button class="cs-btn" style="background:var(--bg);color:var(--text);border:1px solid var(--border)" onclick="closeMod('loginMod')">Cancel</button></div></div></div>
+
+<!-- INVOICE -->
+<div class="modal-ov" id="invMod"><div class="modal modal-lg" style="position:relative"><button class="m-close" onclick="closeMod('invMod')"><i class="fas fa-times"></i></button><div class="m-head"><i class="icon fas fa-file-invoice"></i><h3>Invoice</h3><p>Print → Save as PDF</p></div><div class="m-body" id="invBody"></div></div></div>
+
+<!-- ADMIN PANEL -->
+<div class="admin" id="adminPanel">
+  <div class="ah">
+    <div class="ah-left"><i class="fas fa-cogs"></i><h2>Admin Panel — KitabGhar Nepal</h2></div>
+    <div class="ah-tabs">
+      <div class="ah-tab on" onclick="aTab('products',this)"><i class="fas fa-book"></i> Products</div>
+      <div class="ah-tab" onclick="aTab('orders',this)"><i class="fas fa-shopping-bag"></i> Orders</div>
+      <div class="ah-tab" onclick="aTab('delivery',this)"><i class="fas fa-map-marker-alt"></i> Delivery Areas</div>
+      <div class="ah-tab" onclick="aTab('analytics',this)"><i class="fas fa-chart-bar"></i> Analytics</div>
+    </div>
+    <div class="ah-right">
+      <span class="ab" id="sbBadge" style="background:rgba(255,255,255,.1);color:#fff;font-size:10px"><span class="sb-dot" id="sbDot" style="background:#f87171"></span>Supabase</span>
+      <span class="ab" style="background:rgba(255,255,255,.1);color:#fff;font-size:10px"><i class="fas fa-clock"></i> <span id="tmrD">30:00</span></span>
+      <button class="ab" style="background:var(--info);color:#fff" onclick="goStore()"><i class="fas fa-store"></i> Store</button>
+      <button class="ab" style="background:var(--danger);color:#fff" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+  </div>
+  <div class="ac">
+    <div class="astats" id="aStats"></div>
+    <!-- Products Tab -->
+    <div class="tab-c on" id="tProducts">
+      <div class="acard"><div class="acard-h"><h3><i class="fas fa-plus-circle"></i> <span id="fTitle">Add New Book</span></h3><button class="ab" style="background:rgba(255,255,255,.15);color:#fff;font-size:10px;display:none" id="cancelBtn" onclick="cancelEdit()"><i class="fas fa-times"></i> Cancel</button></div><div class="acard-b"><form id="pForm" onsubmit="return saveBook(event)"><input type="hidden" id="editId"><div class="form-row"><div class="fg"><label>Title *</label><input class="fi" id="pTitle" required></div><div class="fg"><label>Author *</label><input class="fi" id="pAuthor" required></div></div><div class="form-row"><div class="fg"><label>Category *</label><select class="fi" id="pCat" required><option value="">Select</option><option>Novels</option><option>Islamic</option><option>Poetry</option><option>Children</option><option>Education</option><option>Self-Help</option><option>History</option><option>Science</option></select></div><div class="fg"><label>Badge</label><input class="fi" id="pBadge" placeholder="Best Seller, New..."></div></div><div class="form-row"><div class="fg"><label>Sale Price (NPRs) *</label><input class="fi" id="pPr" type="number" min="1" required></div><div class="fg"><label>Original Price (NPRs) *</label><input class="fi" id="pOr" type="number" min="1" required></div></div><div class="fg"><label>Icon</label><div id="emoP" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:3px"></div></div><button type="submit" class="cs-btn green" style="margin-top:8px"><i class="fas fa-plus"></i> <span id="subTxt">Add Book</span></button></form></div></div>
+      <div class="acard"><div class="acard-h"><h3><i class="fas fa-list"></i> Books (<span id="bCnt">0</span>)</h3><input id="aBkSr" placeholder="🔍 Search..." style="padding:5px 10px;border:none;border-radius:5px;font-size:10px;width:140px" oninput="renderABooks()"></div><div class="acard-b" style="padding:0;overflow-x:auto"><table class="at"><thead><tr><th>#</th><th></th><th>Title</th><th>Author</th><th>Category</th><th>Price</th><th>Actions</th></tr></thead><tbody id="aBkTb"></tbody></table></div></div>
+    </div>
+    <!-- Orders Tab -->
+    <div class="tab-c" id="tOrders">
+      <div class="acard"><div class="acard-h"><h3><i class="fas fa-shopping-bag"></i> Orders (<span id="oCnt">0</span>)</h3><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><select id="oFilt" class="ssel" onchange="renderAOrders()" style="color:#fff;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2)"><option value="all">All</option><option value="Pending">Pending</option><option value="Confirmed">Confirmed</option><option value="Shipped">Shipped</option><option value="Delivered">Delivered</option><option value="Cancelled">Cancelled</option></select><input id="aOrdSr" placeholder="🔍 Search..." style="padding:5px 10px;border:none;border-radius:5px;font-size:10px;width:130px" oninput="renderAOrders()"><button class="ab" style="background:rgba(255,255,255,.15);color:#fff" onclick="refreshOrders()"><i class="fas fa-sync"></i></button></div></div><div class="acard-b" style="padding:0;overflow-x:auto"><table class="at"><thead><tr><th>Order #</th><th>Customer</th><th>Phone</th><th>Area</th><th>Qty</th><th>Subtotal</th><th>Delivery</th><th>Total</th><th>Payment</th><th>Paid?</th><th>Status</th><th>Actions</th></tr></thead><tbody id="aOrdTb"></tbody></table></div></div>
+    </div>
+    <!-- Delivery Areas Tab -->
+    <div class="tab-c" id="tDelivery">
+      <div class="acard"><div class="acard-h"><h3><i class="fas fa-map-marker-alt"></i> Delivery Areas & Fees</h3></div><div class="acard-b"><form onsubmit="return addArea(event)"><div class="form-row"><div class="fg"><label>Area Name *</label><input class="fi" id="areaName" placeholder="e.g. Kathmandu Inside Ring Road" required></div><div class="fg"><label>Fee (NPRs) *</label><input class="fi" id="areaFee" type="number" min="0" placeholder="150" required></div></div><button class="cs-btn green" type="submit" style="max-width:280px"><i class="fas fa-plus"></i> Add Area</button></form><div style="margin-top:14px;overflow-x:auto"><table class="at"><thead><tr><th>#</th><th>Area</th><th>Fee</th><th>Actions</th></tr></thead><tbody id="areaTb"></tbody></table></div></div></div>
+    </div>
+    <!-- Analytics Tab -->
+    <div class="tab-c" id="tAnalytics"><div class="acard"><div class="acard-h"><h3><i class="fas fa-chart-bar"></i> Analytics</h3></div><div class="acard-b" id="anaBody"></div></div></div>
+  </div>
+</div>
+
+<!-- ORDER DETAIL -->
+<div class="modal-ov" id="ordDetMod"><div class="modal modal-lg" style="position:relative"><button class="m-close" onclick="closeMod('ordDetMod')"><i class="fas fa-times"></i></button><div class="m-head" id="odHead"><i class="icon fas fa-file-invoice"></i><h3>Order Details</h3></div><div class="m-body" id="odBody"></div></div></div>
+
+<!-- CONFIRM -->
+<div class="cfm-ov" id="cfmDlg"><div class="cfm-box"><i class="fas fa-exclamation-triangle"></i><h4 id="cfmT">Delete?</h4><p id="cfmM">Sure?</p><div class="cfm-btns"><button style="background:var(--bg);color:var(--text)" onclick="closeCfm()">Cancel</button><button id="cfmY" style="background:var(--danger);color:#fff">Delete</button></div></div></div>
+<div class="toast success" id="toast"></div>
+
+<!-- LIBS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+/* ============================================================
+   🟢 SUPABASE CONFIG — APNA URL & KEY YAHAN PASTE KARO
+============================================================ */
+const SUPABASE_URL  = 'https://khrapohnnxoohmigefwg.supabase.co';
+const SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtocmFwb2hubnhvb2htaWdlZndnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NTI2MjQsImV4cCI6MjA5MDQyODYyNH0.QfuQ_pke9Ep8iw3Avkm2Lhh9JWGT5Jk-J6ewAfEE9ZA';
+const ADMIN_SECRET  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtocmFwb2hubnhvb2htaWdlZndnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDg1MjYyNCwiZXhwIjoyMDkwNDI4NjI0fQ.6GINXpxGp-zwvCruBTTcS8CoIsP9jz1BMs3kMzGYnn0'; // apna secret change karo!
+
+/* ============================================================
+   APP CONFIG
+============================================================ */
+const WA        = '9779824857999';
+const STORE_NUM = '9824857999';
+const C         = 'NPRs';
+const TRACK_URL = 'https://kitabghar.com.np/track';
+const COD_FEE   = 50;
+const ESEWA_QR  = `PAY_TO:${STORE_NUM}|MERCHANT:KitabGhar|CHANNEL:eSewa/Khalti`;
+const EMOJIS    = ['📖','📗','📘','📕','📙','📚','📜','📓','📔','📒','🎓','✨'];
+
+/* ============================================================
+   SUPABASE CLIENT
+============================================================ */
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+/* ============================================================
+   IN-MEMORY CACHE
+============================================================ */
+let _books=[], _orders=[], _areas=[];
+
+/* ============================================================
+   SUPABASE DATA FUNCTIONS
+============================================================ */
+
+// --- BOOKS ---
+async function loadBooks(){
+  const {data,error} = await sb.from('books').select('*').eq('active',true).order('sort_order');
+  if(error){console.error('loadBooks:',error);return _books}
+  _books = data || [];
+  return _books;
+}
+async function addBook(book){
+  const {data,error} = await sb.from('books').insert([{...book,sort_order:_books.length+1,active:true}]).select().single();
+  if(error) throw error;
+  return data;
+}
+async function updateBook(id, updates){
+  const {data,error} = await sb.from('books').update(updates).eq('id',id).select().single();
+  if(error) throw error;
+  return data;
+}
+async function deleteBook(id){
+  // Soft delete
+  const {error} = await sb.from('books').update({active:false}).eq('id',id);
+  if(error) throw error;
+}
+
+// --- ORDERS ---
+async function loadOrders(){
+  const {data,error} = await sb.from('orders').select('*').order('ts', {ascending:false});
+  if(error){console.error('loadOrders:',error);return _orders}
+  _orders = data || [];
+  return _orders;
+}
+async function getOrdersByPhone(phone){
+  const {data,error} = await sb.from('orders').select('*').eq('customer_phone',phone).order('ts',{ascending:false});
+  if(error){console.error(error);return []}
+  return data || [];
+}
+async function getOrderById(orderId){
+  const {data,error} = await sb.from('orders').select('*').eq('order_id',orderId).single();
+  if(error) return null;
+  return data;
+}
+async function createOrder(orderData){
+  // Get next order ID
+  const {count} = await sb.from('orders').select('*',{count:'exact',head:true});
+  const orderId = 'KG-' + String(10001 + (count||0)).padStart(5,'0');
+
+  const {data,error} = await sb.from('orders').insert([{
+    order_id:         orderId,
+    customer_name:    orderData.customer.name,
+    customer_phone:   orderData.customer.phone,
+    customer_email:   orderData.customer.email,
+    customer_address: orderData.customer.address,
+    customer_notes:   orderData.customer.notes,
+    area_name:        orderData.customer.areaName,
+    area_id:          orderData.customer.areaId,
+    delivery:         orderData.delivery,
+    items:            orderData.items,
+    subtotal:         orderData.subtotal,
+    cod_fee:          orderData.codFee,
+    total:            orderData.total,
+    payment_method:   orderData.payment.method,
+    payment_label:    orderData.payment.label,
+    trx_id:           orderData.payment.trxId,
+    verified:         false,
+    status:           'Pending',
+    order_date:       orderData.date,
+    ts:               orderData.ts
+  }]).select().single();
+
+  if(error) throw error;
+  return data;
+}
+async function updateOrder(id, updates){
+  const {data,error} = await sb.from('orders').update(updates).eq('id',id).select().single();
+  if(error) throw error;
+  return data;
+}
+
+// --- AREAS ---
+async function loadAreas(){
+  const {data,error} = await sb.from('areas').select('*').order('sort_order');
+  if(error){console.error('loadAreas:',error);return _areas}
+  _areas = data || [];
+  return _areas;
+}
+async function addArea(name, fee){
+  const {data,error} = await sb.from('areas').insert([{name,fee,sort_order:_areas.length+1}]).select().single();
+  if(error) throw error;
+  return data;
+}
+async function updateArea(id, name, fee){
+  const {data,error} = await sb.from('areas').update({name,fee}).eq('id',id).select().single();
+  if(error) throw error;
+  return data;
+}
+async function deleteArea(id){
+  const {error} = await sb.from('areas').delete().eq('id',id);
+  if(error) throw error;
+}
+
+/* ============================================================
+   REALTIME SUBSCRIPTION (Admin Panel)
+============================================================ */
+let realtimeSub = null;
+function startRealtime(){
+  if(realtimeSub) realtimeSub.unsubscribe();
+  realtimeSub = sb.channel('orders-changes')
+    .on('postgres_changes',{event:'*',schema:'public',table:'orders'}, payload=>{
+      if(payload.eventType==='INSERT'){
+        _orders.unshift(payload.new);
+        notify('🔔 New Order: '+payload.new.order_id,'info');
+      } else if(payload.eventType==='UPDATE'){
+        const idx=_orders.findIndex(o=>o.id===payload.new.id);
+        if(idx>-1) _orders[idx]=payload.new;
+      }
+      renderAOrders();renderAStats();renderAna();
+      // Badge update
+      const ph=JSON.parse(localStorage.getItem('kg_ph')||'[]');
+      const mc=_orders.filter(o=>ph.includes(o.customer_phone)).length;
+      const dot=document.getElementById('myOrdDot');
+      if(dot){dot.style.display=mc?'flex':'none';dot.textContent=mc}
+    })
+    .subscribe((status)=>{
+      const dot=document.getElementById('sbDot');
+      if(dot) dot.style.background = status==='SUBSCRIBED' ? '#3ecf8e' : '#f87171';
+    });
+}
+
+/* ============================================================
+   UI HELPERS
+============================================================ */
+function showLoad(){document.getElementById('loadingBar').classList.add('on')}
+function hideLoad(){document.getElementById('loadingBar').classList.remove('on')}
+function openMod(id){document.getElementById(id).classList.add('on')}
+function closeMod(id){document.getElementById(id).classList.remove('on')}
+function closeCfm(){document.getElementById('cfmDlg').classList.remove('on')}
+function notify(m,t='success'){const el=document.getElementById('toast');el.textContent=m;el.className=`toast ${t} show`;setTimeout(()=>el.classList.remove('show'),3500)}
+const san=s=>String(s||'').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fmtDate=()=>{const d=new Date();return d.toLocaleDateString('en-NP',{year:'numeric',month:'long',day:'numeric'})+' '+d.toLocaleTimeString('en-NP',{hour:'2-digit',minute:'2-digit'})};
+
+/* ============================================================
+   AUTH / SESSION
+============================================================ */
+function initCreds(){if(!localStorage.getItem('kg_u')){localStorage.setItem('kg_u',btoa('admin'));localStorage.setItem('kg_p',btoa('kitabghar123'))}}
+let sesTmr=null,sesL=0;
+function startSes(){sesL=1800;sessionStorage.setItem('kg_s','1');updTmr();sesTmr=setInterval(()=>{sesL--;updTmr();if(sesL<=0){notify('⏰ Session expired!','error');doLogout()}},1000)}
+function updTmr(){const el=document.getElementById('tmrD');if(el)el.textContent=`${String(Math.floor(sesL/60)).padStart(2,'0')}:${String(sesL%60).padStart(2,'0')}`}
+function endSes(){sessionStorage.removeItem('kg_s');if(sesTmr)clearInterval(sesTmr);if(realtimeSub){realtimeSub.unsubscribe();realtimeSub=null}}
+
+/* ============================================================
+   STORE STATE
+============================================================ */
+let cart=[],curCat='all',curPay='cod',curEmoji='📖';
+const catIco={Novels:'fa-book',Islamic:'fa-mosque',Poetry:'fa-feather-alt',Children:'fa-child',Education:'fa-graduation-cap','Self-Help':'fa-heart',History:'fa-landmark',Science:'fa-flask'};
+
+/* ============================================================
+   DELIVERY AREA
+============================================================ */
+function getSelArea(){const sel=document.getElementById('cArea');if(!sel)return null;return _areas.find(a=>a.id===sel.value)||null}
+function getDelFee(){const a=getSelArea();return a?Number(a.fee||0):0}
+function populateAreaSelect(){
+  const sel=document.getElementById('cArea');if(!sel)return;
+  sel.innerHTML=`<option value="">Select Area</option>`+_areas.map(a=>`<option value="${a.id}">${a.name} — ${C} ${Number(a.fee).toLocaleString()}</option>`).join('');
+}
+function onAreaChanged(){updCart();if(curPay==='esewa')renderQR(getPrevTotal())}
+
+/* ============================================================
+   CATEGORIES + PRODUCTS
+============================================================ */
+function renderCats(){
+  const g=document.getElementById('catGrid');
+  const cats=[...new Set(_books.map(b=>b.category))];
+  g.innerHTML=`<div class="cat-card ${curCat==='all'?'active':''}" onclick="selCat('all')"><i class="fas fa-th"></i><span>All</span></div>`
+    +cats.map(c=>`<div class="cat-card ${curCat===c?'active':''}" onclick="selCat('${c}')"><i class="fas ${catIco[c]||'fa-folder'}"></i><span>${c}</span></div>`).join('');
+}
+function selCat(c,el){curCat=c;renderCats();renderProducts();document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));if(el)el.classList.add('active')}
+function renderProducts(){
+  const sv=(document.getElementById('searchInput')?.value||'').toLowerCase();
+  let f=_books.filter(b=>(curCat==='all'||b.category===curCat)&&(b.title.toLowerCase().includes(sv)||b.author.toLowerCase().includes(sv)||b.category.toLowerCase().includes(sv)));
+  document.getElementById('pCnt').textContent=`(${f.length})`;
+  document.getElementById('pGrid').innerHTML=f.length?f.map(b=>{
+    const d=Number(b.original_price)>Number(b.price)?Math.round(((b.original_price-b.price)/b.original_price)*100):0;
+    return`<div class="p-card">${b.badge?`<span class="p-badge">${b.badge}</span>`:''}${d>0?`<span class="p-disc">-${d}%</span>`:''}<div class="p-img">${b.emoji||'📖'}</div><div class="p-info"><div class="p-cat">${b.category}</div><div class="p-title">${b.title}</div><div class="p-author"><i class="fas fa-user-edit"></i> ${b.author}</div><div class="p-stars">${'★'.repeat(Math.floor(Number(b.rating)||4))} <span>(${b.reviews||0})</span></div><div class="p-price"><span class="now">${C} ${Number(b.price).toLocaleString()}</span>${Number(b.original_price)>Number(b.price)?`<span class="was">${C} ${Number(b.original_price).toLocaleString()}</span>`:''}</div><button class="add-btn" onclick="addCart('${b.id}')"><i class="fas fa-cart-plus"></i> Add to Cart</button></div></div>`;
+  }).join(''):`<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--light-text);font-weight:900"><i class="fas fa-search" style="font-size:35px;display:block;margin-bottom:8px;color:#e2e8f0"></i>No books found!</div>`;
+}
+
+/* ============================================================
+   CART
+============================================================ */
+function addCart(id){const b=_books.find(x=>x.id===id);if(!b)return;const ex=cart.find(c=>c.id===id);ex?ex.qty++:cart.push({...b,qty:1});updCart();notify(`✅ "${b.title}" added!`)}
+function rmCart(id){cart=cart.filter(c=>c.id!==id);updCart()}
+function chgQ(id,d){const it=cart.find(c=>c.id===id);if(it){it.qty+=d;if(it.qty<=0)return rmCart(id)}updCart()}
+function updCart(){
+  const bd=document.getElementById('cartBody'),ft=document.getElementById('cartFoot');
+  const tc=cart.reduce((s,c)=>s+c.qty,0),sub=cart.reduce((s,c)=>s+Number(c.price)*c.qty,0),dl=getDelFee();
+  document.getElementById('cartDot').textContent=tc;
+  if(!cart.length){bd.innerHTML=`<div class="empty-cart"><i class="fas fa-shopping-cart"></i><p>Cart Empty!</p></div>`;ft.style.display='none';return}
+  bd.innerHTML=cart.map(c=>`<div class="cs-item"><div class="cs-item-img">${c.emoji||'📖'}</div><div class="cs-item-info"><div class="cs-item-title">${c.title}</div><div class="cs-item-price">${C} ${(Number(c.price)*c.qty).toLocaleString()}</div><div class="cs-item-qty"><button class="qb" onclick="chgQ('${c.id}',-1)">-</button><span>${c.qty}</span><button class="qb" onclick="chgQ('${c.id}',1)">+</button></div></div><button class="cs-rm" onclick="rmCart('${c.id}')"><i class="fas fa-trash"></i></button></div>`).join('');
+  ft.style.display='block';
+  document.getElementById('cSub').textContent=`${C} ${sub.toLocaleString()}`;
+  document.getElementById('cDel').textContent=`${C} ${dl.toLocaleString()}`;
+  document.getElementById('cTot').textContent=`${C} ${(sub+dl).toLocaleString()}`;
+}
+function toggleCart(){document.getElementById('cartSide').classList.toggle('on');document.getElementById('cartOv').classList.toggle('on')}
+function openWA(){window.open(`https://wa.me/${WA}?text=${encodeURIComponent('Namaste! KitabGhar se books order karna chahta/chahti hoon.')}`)}
+
+/* ============================================================
+   QR
+============================================================ */
+function renderQR(amount){
+  const el=document.getElementById('esewaQr');if(!el)return;el.innerHTML='';
+  const payload=[ESEWA_QR,`AMOUNT:${amount}`,`CURRENCY:NPR`].join('\n');
+  try{new QRCode(el,{text:payload,width:180,height:180,colorDark:"#0f172a",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M})}
+  catch(e){el.innerHTML=`<div style="font-size:11px;color:var(--danger);font-weight:900;text-align:center;padding:10px">QR error</div>`}
+}
+function getPrevTotal(){return cart.reduce((s,c)=>s+Number(c.price)*c.qty,0)+getDelFee()+(curPay==='cod'?COD_FEE:0)}
+function showPayInfo(m){['cod','esewa','bank'].forEach(id=>{const box=document.getElementById('pi_'+id);if(box)box.style.display=id===m?'block':'none'})}
+
+/* ============================================================
+   WHATSAPP MESSAGE BUILDER
+============================================================ */
+function buildWAMsg(o){
+  const items = Array.isArray(o.items) ? o.items : JSON.parse(o.items||'[]');
+  let msg=`📚 *KitabGhar — Order Confirmation*\n━━━━━━━━━━━━━━━━━━━━━\n\n`;
+  msg+=`*Order Number:* ${o.order_id}\n*Date:* ${o.order_date}\n*Name:* ${o.customer_name}\n*Phone:* ${o.customer_phone}\n\n`;
+  msg+=`📦 *Products:*\n\n`;
+  items.forEach((it,i)=>{msg+=`${i+1}. ${it.emoji||'📖'} ${it.title}\n   Qty: ${it.qty} × ${C} ${Number(it.price).toLocaleString()} = ${C} ${(Number(it.price)*it.qty).toLocaleString()}\n\n`});
+  msg+=`━━━━━━━━━━━━━━━━━━━━━\n`;
+  msg+=`*Shipping:* Delivery\n*Area:* ${o.area_name||'—'} (${C} ${Number(o.delivery).toLocaleString()})\n`;
+  msg+=`*Address:* ${o.customer_address}\n`;
+  if(o.customer_notes) msg+=`*Notes:* ${o.customer_notes}\n`;
+  msg+=`*Payment:* ${o.payment_label}\n`;
+  if(o.trx_id) msg+=`*Transaction ID:* ${o.trx_id}\n`;
+  msg+=`*Payment Status:* ${o.verified?'✅ PAID (Verified)':'⏳ UNPAID (Pending Verification)'}\n`;
+  msg+=`\n━━━━━━━━━━━━━━━━━━━━━\n`;
+  msg+=`   Subtotal: ${C} ${Number(o.subtotal).toLocaleString()}\n`;
+  msg+=`   Delivery: ${C} ${Number(o.delivery).toLocaleString()}\n`;
+  if(Number(o.cod_fee)>0) msg+=`   COD Fee: ${C} ${Number(o.cod_fee).toLocaleString()}\n`;
+  msg+=`\n💰 *Total: ${C} ${Number(o.total).toLocaleString()}*\n━━━━━━━━━━━━━━━━━━━━━\n\n`;
+  msg+=`🚚 Track: ${TRACK_URL}?order=${o.order_id}\n\nThank you! 📚🇳🇵`;
+  return msg;
+}
+
+function sendOrderWA(id){
+  const o=_orders.find(x=>x.id===id||x.order_id===id);
+  if(!o){notify('Order not found','error');return}
+  const ph='977'+String(o.customer_phone).replace(/^0+/,'');
+  window.open(`https://wa.me/${ph}?text=${encodeURIComponent(buildWAMsg(o))}`,'_blank');
+}
+
+function waCartOrder(){
+  if(!cart.length) return;
+  const sub=cart.reduce((s,c)=>s+Number(c.price)*c.qty,0), dl=getDelFee();
+  let msg=`📚 *KitabGhar — New Order*\n━━━━━━━━━━━━━━━━━━━━━\n\n*Date:* ${fmtDate()}\n*Name:* [Your Name]\n*Phone:* [Your Phone]\n\n📦 *Products:*\n\n`;
+  cart.forEach((c,i)=>{msg+=`${i+1}. ${c.emoji||'📖'} ${c.title}\n   Qty: ${c.qty} × ${C} ${Number(c.price).toLocaleString()} = ${C} ${(Number(c.price)*c.qty).toLocaleString()}\n\n`});
+  msg+=`━━━━━━━━━━━━━━━━━━━━━\n*Shipping:* Delivery\n*Area:* [Select Area]\n*Address:* [Your Address]\n*Payment:* [COD / eSewa / Bank]\n\n   Subtotal: ${C} ${sub.toLocaleString()}\n   Delivery: ${C} ${dl.toLocaleString()}\n\n💰 *Total: ${C} ${(sub+dl).toLocaleString()}*\n\n_Fill placeholders above._`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`);
+}
+
+/* ============================================================
+   CHECKOUT
+============================================================ */
+function openCheckout(){if(!cart.length){notify('Cart empty!','error');return}populateAreaSelect();toggleCart();setTimeout(()=>{resetCO();openMod('checkMod')},250)}
+function resetCO(){[1,2,3,4].forEach((n,i)=>document.getElementById('cs'+n).style.display=i===0?'block':'none');['st1','st2','st3'].forEach((s,i)=>document.getElementById(s).className='step'+(i===0?' active':''));document.querySelectorAll('.form-err').forEach(e=>e.classList.remove('show'));showPayInfo(curPay)}
+function showErr(n,m){const e=document.getElementById('e'+n);document.getElementById('e'+n+'t').textContent=m;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),4000)}
+function goStep(n){
+  if(n===2){
+    const nm=document.getElementById('cName').value.trim(),ph=document.getElementById('cPhone').value.trim(),ad=document.getElementById('cAddr').value.trim(),area=document.getElementById('cArea').value;
+    if(!nm||!ph||!ad||!area){showErr(1,'Please fill all required fields.');return}
+    if(!/^(98|97|96)\d{8}$/.test(ph.replace(/[\s-]/g,''))){showErr(1,'Valid Nepal phone (98XXXXXXXX)');return}
+    updCart();
+  }
+  if(n===3){
+    if(curPay==='esewa'&&!document.getElementById('trxE').value.trim()){showErr(2,'Transaction ID required');return}
+    if(curPay==='bank'&&!document.getElementById('trxB').value.trim()){showErr(2,'Reference number required');return}
+    buildReview();
+  }
+  [1,2,3,4].forEach((s,i)=>document.getElementById('cs'+s).style.display=i===n-1?'block':'none');
+  ['st1','st2','st3'].forEach((s,i)=>document.getElementById(s).className='step'+(i<n-1?' done':i===n-1?' active':''));
+}
+function selPay(el,m){curPay=m;document.querySelectorAll('.pay-opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');showPayInfo(m);if(m==='esewa')renderQR(getPrevTotal())}
+function buildReview(){
+  const sub=cart.reduce((s,c)=>s+Number(c.price)*c.qty,0),dl=getDelFee(),cf=curPay==='cod'?COD_FEE:0,tot=sub+dl+cf;
+  const area=getSelArea();const pn={cod:'Cash on Delivery',esewa:'eSewa/Khalti (QR)',bank:'Bank Transfer'};
+  let h=`<h4 style="font-size:13px;margin-bottom:10px;font-weight:900">📋 Order Review</h4><div class="o-sum">`;
+  cart.forEach(c=>h+=`<div class="os-row"><span>${c.emoji||'📖'} ${c.title} ×${c.qty}</span><span>${C} ${(Number(c.price)*c.qty).toLocaleString()}</span></div>`);
+  h+=`<div class="os-row"><span>🗺️ Area</span><span>${area?area.name:'—'}</span></div>`;
+  h+=`<div class="os-row"><span>🚚 Delivery</span><span>${C} ${dl.toLocaleString()}</span></div>`;
+  if(cf)h+=`<div class="os-row"><span>💵 COD Fee</span><span>${C} ${cf}</span></div>`;
+  h+=`<div class="os-total"><span>Total</span><span style="color:var(--success)">${C} ${tot.toLocaleString()}</span></div></div>`;
+  h+=`<div class="o-sum"><p style="font-size:11px;font-weight:900">👤 ${document.getElementById('cName').value}</p><p style="font-size:11px;font-weight:900">📱 ${document.getElementById('cPhone').value}</p><p style="font-size:11px;font-weight:900">📍 ${document.getElementById('cAddr').value}</p><p style="font-size:11px;font-weight:900">🗺️ ${area?area.name:'—'}</p><p style="font-size:11px;font-weight:900">💳 ${pn[curPay]}</p><p style="font-size:11px;color:#92400e;font-weight:900;margin-top:6px">⚠️ Payment shows <strong>UNPAID</strong> until admin verifies.</p></div>`;
+  document.getElementById('reviewBox').innerHTML=h;
+}
+
+/* ============================================================
+   PLACE ORDER → SUPABASE
+============================================================ */
+async function placeOrder(){
+  const sub=cart.reduce((s,c)=>s+Number(c.price)*c.qty,0);
+  const area=getSelArea(),dl=getDelFee(),cf=curPay==='cod'?COD_FEE:0,tot=sub+dl+cf;
+  const pn={cod:'Cash on Delivery',esewa:'eSewa/Khalti (QR)',bank:'Bank Transfer'};
+  const trxId=curPay==='esewa'?document.getElementById('trxE').value.trim():curPay==='bank'?document.getElementById('trxB').value.trim():'';
+
+  const orderData={
+    customer:{
+      name:document.getElementById('cName').value.trim(),
+      phone:document.getElementById('cPhone').value.trim(),
+      email:document.getElementById('cEmail').value.trim(),
+      address:document.getElementById('cAddr').value.trim(),
+      notes:document.getElementById('cNotes').value.trim(),
+      areaName:area?area.name:'',
+      areaId:area?area.id:null
+    },
+    items:cart.map(c=>({bookId:c.id,title:c.title,author:c.author,emoji:c.emoji||'📖',price:c.price,qty:c.qty})),
+    subtotal:sub,delivery:dl,codFee:cf,total:tot,
+    payment:{method:curPay,label:pn[curPay],trxId:trxId,verified:false},
+    date:fmtDate(),ts:Date.now()
+  };
+
+  showLoad();
+  try{
+    const order = await createOrder(orderData);
+    _orders.unshift(order);
+    hideLoad();
+
+    let ph=JSON.parse(localStorage.getItem('kg_ph')||'[]');
+    if(!ph.includes(orderData.customer.phone)) ph.push(orderData.customer.phone);
+    localStorage.setItem('kg_ph',JSON.stringify(ph));
+
+    document.getElementById('sucId').textContent = order.order_id;
+
+    // Auto WhatsApp to store
+    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(buildWAMsg(order))}`,'_blank');
+
+    cart=[];updCart();goStep(4);notify('🎉 Order saved to Supabase! 🟢');
+    ['cName','cPhone','cEmail','cAddr','cNotes','trxE','trxB'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});
+    document.getElementById('cArea').selectedIndex=0;
+
+  }catch(err){
+    hideLoad();
+    notify('❌ Error: '+err.message,'error');
+    console.error('placeOrder error:',err);
+  }
+}
+
+/* ============================================================
+   MY ORDERS (Customer)
+============================================================ */
+async function openMyOrders(){
+  showLoad();
+  const ph=JSON.parse(localStorage.getItem('kg_ph')||'[]');
+  let myOrders=[];
+  for(const phone of ph){
+    const orders = await getOrdersByPhone(phone);
+    myOrders=[...myOrders,...orders];
+  }
+  myOrders.sort((a,b)=>Number(b.ts||0)-Number(a.ts||0));
+  hideLoad();
+
+  const bd=document.getElementById('myOrdBody');
+  const dot=document.getElementById('myOrdDot');
+  dot.style.display=myOrders.length?'flex':'none';
+  dot.textContent=myOrders.length;
+
+  bd.innerHTML=myOrders.length?myOrders.map(o=>{
+    const sc={Pending:'s-pending',Confirmed:'s-confirmed',Shipped:'s-shipped',Delivered:'s-delivered',Cancelled:'s-cancelled'}[o.status]||'s-pending';
+    const payPill=o.verified?`<span class="pill paid"><i class="fas fa-check-circle"></i> PAID</span>`:`<span class="pill unpaid"><i class="fas fa-hourglass-half"></i> UNPAID</span>`;
+    const items=Array.isArray(o.items)?o.items:JSON.parse(o.items||'[]');
+    const steps=['Pending','Confirmed','Shipped','Delivered'],ci=steps.indexOf(o.status);
+    return`<div class="oc">
+      <div class="oc-head"><span class="oc-id">${o.order_id}</span><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${payPill}<span class="sbadge ${sc}">${o.status}</span></div></div>
+      <div class="oc-meta"><span>📅 ${o.order_date}</span><span>🗺️ ${o.area_name||'—'}</span><span>📦 ${items.reduce((s,i)=>s+i.qty,0)} qty</span><span>💳 ${o.payment_label}</span><span>Subtotal: ${C} ${Number(o.subtotal).toLocaleString()}</span><span>Delivery: ${C} ${Number(o.delivery).toLocaleString()}</span><span>Total: ${C} ${Number(o.total).toLocaleString()}</span><span>Trx: ${o.trx_id||'N/A'}</span></div>
+      <div class="oc-items">${items.map(i=>`${i.emoji||'📖'} ${i.title} ×${i.qty} = ${C} ${(Number(i.price)*i.qty).toLocaleString()}`).join('<br>')}</div>
+      ${o.status!=='Cancelled'?`<div class="timeline">${steps.map((s,i)=>`<div class="tl-s ${i<ci?'done':i===ci?'now':''}">${s}</div>`).join('')}</div>`:''}
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="tb edit" style="padding:10px 14px;border-radius:10px;font-size:11px" onclick="openInvoice('${o.id}')"><i class="fas fa-file-invoice"></i> Invoice</button>
+        <button class="tb view" style="padding:10px 14px;border-radius:10px;font-size:11px" onclick="openInvoice('${o.id}',true)"><i class="fas fa-download"></i> Download PDF</button>
+      </div>
+    </div>`;
+  }).join(''):`<div style="text-align:center;padding:40px;color:var(--light-text);font-weight:900"><i class="fas fa-box-open" style="font-size:40px;display:block;margin-bottom:8px;color:#e2e8f0"></i>No orders yet</div>`;
+  openMod('myOrdMod');
+}
+
+/* ============================================================
+   INVOICE
+============================================================ */
+function openInvoice(id, autoPrint=false){
+  const o=_orders.find(x=>x.id===id||x.order_id===id);
+  if(!o){notify('Not found','error');return}
+  const isPaid=o.verified;
+  const paidBadge=isPaid?`<span class="inv-badge paid"><i class="fas fa-check-circle"></i> PAID</span>`:`<span class="inv-badge unpaid"><i class="fas fa-hourglass-half"></i> UNPAID</span>`;
+  const items=Array.isArray(o.items)?o.items:JSON.parse(o.items||'[]');
+  const rows=items.map((it,idx)=>`<tr><td>${idx+1}</td><td><div style="font-weight:900">${it.emoji||'📖'} ${it.title}</div><div style="font-size:10px;color:var(--light-text)">by ${it.author||'—'}</div></td><td style="text-align:right">${it.qty}</td><td style="text-align:right">${C} ${Number(it.price).toLocaleString()}</td><td style="text-align:right">${C} ${(Number(it.price)*it.qty).toLocaleString()}</td></tr>`).join('');
+
+  document.getElementById('invBody').innerHTML=`
+    <div class="invoice">
+      <div class="inv-head">
+        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+          <div><h2>KitabGhar Nepal — Invoice</h2><p>WhatsApp: +977 ${STORE_NUM} • Nepal 🇳🇵 • Supabase 🟢</p></div>
+          <div style="text-align:right"><div style="font-size:12px;font-weight:900">${o.order_id}</div><div style="margin-top:6px">${paidBadge}</div></div>
+        </div>
+      </div>
+      <div class="inv-body">
+        <div class="inv-grid">
+          <div class="inv-box"><h4>Bill To</h4><p><span>Name:</span> ${o.customer_name}</p><p><span>Phone:</span> ${o.customer_phone}</p><p><span>Email:</span> ${o.customer_email||'—'}</p></div>
+          <div class="inv-box"><h4>Shipping</h4><p><span>Area:</span> ${o.area_name||'—'}</p><p><span>Address:</span> ${o.customer_address}</p><p><span>Date:</span> ${o.order_date}</p></div>
+        </div>
+        <div class="inv-box" style="margin-bottom:12px">
+          <h4>Payment</h4>
+          <p><span>Method:</span> ${o.payment_label}</p>
+          <p><span>Transaction ID:</span> ${o.trx_id||'N/A'}</p>
+          <p><span>Status:</span> ${isPaid?'✅ PAID (Verified)':'⏳ UNPAID (Pending)'}</p>
+          ${o.verified_at?`<p><span>Verified At:</span> ${o.verified_at}</p>`:''}
+        </div>
+        <table class="inv-table">
+          <thead><tr><th>#</th><th>Product</th><th style="text-align:right">Qty</th><th style="text-align:right">Price</th><th style="text-align:right">Total</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <div class="inv-totals">
+          <div class="inv-row"><span>Subtotal</span><span>${C} ${Number(o.subtotal).toLocaleString()}</span></div>
+          <div class="inv-row"><span>Delivery (${o.area_name||'—'})</span><span>${C} ${Number(o.delivery).toLocaleString()}</span></div>
+          ${Number(o.cod_fee)>0?`<div class="inv-row"><span>COD Fee</span><span>${C} ${Number(o.cod_fee).toLocaleString()}</span></div>`:''}
+          <div class="inv-row total"><span>Grand Total</span><span>${C} ${Number(o.total).toLocaleString()}</span></div>
+        </div>
+        <p style="margin-top:10px;font-size:11px;color:var(--light-text);font-weight:900">Payment shows UNPAID until admin verifies.</p>
+        <div class="inv-actions">
+          <button class="btn-pdf" onclick="window.print()"><i class="fas fa-download"></i> Download as PDF</button>
+          <button class="btn-wa-inv" onclick="sendOrderWA('${o.id}')"><i class="fab fa-whatsapp"></i> Send to Customer</button>
+          <button class="btn-close-inv" onclick="closeMod('invMod')"><i class="fas fa-times"></i> Close</button>
+        </div>
+      </div>
+    </div>`;
+  openMod('invMod');
+  if(autoPrint) setTimeout(()=>window.print(),400);
+}
+
+/* ============================================================
+   TRACK ORDER
+============================================================ */
+function openTracker(){openMod('trkMod');document.getElementById('trkRes').innerHTML=''}
+async function trackOrder(){
+  const v=document.getElementById('trkIn').value.trim().toUpperCase();
+  if(!v){notify('Enter Order ID','error');return}
+  showLoad();
+  const o=await getOrderById(v);
+  hideLoad();
+  const r=document.getElementById('trkRes');
+  if(!o){r.innerHTML=`<div style="text-align:center;padding:20px;color:var(--danger);margin-top:12px;font-weight:900"><i class="fas fa-times-circle" style="font-size:30px;display:block;margin-bottom:6px"></i>Order not found!</div>`;return}
+  const sc={Pending:'s-pending',Confirmed:'s-confirmed',Shipped:'s-shipped',Delivered:'s-delivered',Cancelled:'s-cancelled'}[o.status]||'s-pending';
+  const pay=o.verified?`<span class="pill paid small"><i class="fas fa-check-circle"></i> PAID</span>`:`<span class="pill unpaid small"><i class="fas fa-hourglass-half"></i> UNPAID</span>`;
+  const steps=['Pending','Confirmed','Shipped','Delivered'],ci=steps.indexOf(o.status);
+  const items=Array.isArray(o.items)?o.items:JSON.parse(o.items||'[]');
+  r.innerHTML=`<div style="margin-top:12px" class="oc">
+    <div class="oc-head"><span class="oc-id">${o.order_id}</span><div style="display:flex;gap:8px;align-items:center">${pay}<span class="sbadge ${sc}">${o.status}</span></div></div>
+    <div class="oc-meta"><span>👤 ${o.customer_name}</span><span>🗺️ ${o.area_name||'—'}</span><span>💳 ${o.payment_label}</span><span>📅 ${o.order_date}</span><span>Subtotal: ${C} ${Number(o.subtotal).toLocaleString()}</span><span>Delivery: ${C} ${Number(o.delivery).toLocaleString()}</span><span>Total: ${C} ${Number(o.total).toLocaleString()}</span></div>
+    ${o.status!=='Cancelled'?`<div class="timeline">${steps.map((s,i)=>`<div class="tl-s ${i<ci?'done':i===ci?'now':''}">${s}</div>`).join('')}</div>`:''}
+    <div class="oc-items" style="margin-top:8px">${items.map(i=>`${i.emoji||'📖'} ${i.title} ×${i.qty} = ${C} ${(Number(i.price)*i.qty).toLocaleString()}`).join('<br>')}</div>
+    <div style="margin-top:12px"><button class="tb view" style="padding:10px 14px;border-radius:10px" onclick="(async()=>{_orders.push(await getOrderById('${o.order_id}'));openInvoice('${o.id}',true)})()"><i class="fas fa-download"></i> Download Invoice</button></div>
+  </div>`;
+}
+
+/* ============================================================
+   ADMIN AUTH
+============================================================ */
+function openLogin(){openMod('loginMod');document.getElementById('aU').value='';document.getElementById('aP').value='';document.getElementById('logErr').classList.remove('show')}
+function doLogin(){
+  const u=document.getElementById('aU').value.trim(),p=document.getElementById('aP').value;
+  if(u===atob(localStorage.getItem('kg_u'))&&p===atob(localStorage.getItem('kg_p'))){
+    closeMod('loginMod');startSes();showAdmin();notify('✅ Welcome Admin!');
+  }else{
+    document.getElementById('logErrT').textContent='❌ Invalid credentials!';
+    document.getElementById('logErr').classList.add('show');
+    document.getElementById('aP').value='';
+  }
+}
+function doLogout(){endSes();hideAdmin();notify('👋 Logged out','info')}
+function showAdmin(){document.getElementById('store').classList.add('hide');document.getElementById('adminPanel').classList.add('on');startRealtime();refreshAdmin()}
+function hideAdmin(){document.getElementById('store').classList.remove('hide');document.getElementById('adminPanel').classList.remove('on');if(realtimeSub){realtimeSub.unsubscribe();realtimeSub=null}renderCats();renderProducts()}
+function goStore(){hideAdmin()}
+function aTab(t,el){
+  document.querySelectorAll('.tab-c').forEach(c=>c.classList.remove('on'));
+  document.getElementById('t'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('on');
+  document.querySelectorAll('.ah-tab').forEach(t=>t.classList.remove('on'));
+  if(el)el.classList.add('on');
+  if(t==='analytics')renderAna();
+  if(t==='delivery')renderAreas();
+}
+async function refreshAdmin(){renderAStats();renderABooks();renderAOrders();renderAreas();renderAna()}
+async function refreshOrders(){showLoad();await loadOrders();hideLoad();renderAOrders();renderAStats();notify('✅ Refreshed!','info')}
+
+/* ============================================================
+   ADMIN STATS
+============================================================ */
+function renderAStats(){
+  const pend=_orders.filter(o=>o.status==='Pending').length;
+  const unverified=_orders.filter(o=>!o.verified).length;
+  const verified=_orders.filter(o=>o.verified).length;
+  const rev=_orders.filter(o=>o.status==='Delivered'&&o.verified).reduce((s,o)=>s+Number(o.total),0);
+  document.getElementById('aStats').innerHTML=`
+    <div class="astat"><div class="astat-icon" style="background:linear-gradient(135deg,#2563eb,#60a5fa)"><i class="fas fa-book"></i></div><div><h4>${_books.length}</h4><span>Books</span></div></div>
+    <div class="astat"><div class="astat-icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)"><i class="fas fa-shopping-bag"></i></div><div><h4>${_orders.length}</h4><span>Total Orders</span></div></div>
+    <div class="astat"><div class="astat-icon" style="background:linear-gradient(135deg,#e11d48,#f43f5e)"><i class="fas fa-hourglass-half"></i></div><div><h4>${unverified}</h4><span>Unpaid (Unverified)</span></div></div>
+    <div class="astat"><div class="astat-icon" style="background:linear-gradient(135deg,#059669,#34d399)"><i class="fas fa-check-circle"></i></div><div><h4>${verified}</h4><span>Paid (Verified)</span></div></div>
+    <div class="astat"><div class="astat-icon" style="background:linear-gradient(135deg,#3ecf8e,#1a9963)"><i class="fas fa-money-bill-wave"></i></div><div><h4>${C} ${rev.toLocaleString()}</h4><span>Revenue</span></div></div>
+    <div class="astat"><div class="astat-icon" style="background:linear-gradient(135deg,#334155,#0f172a)"><i class="fas fa-clock"></i></div><div><h4>${pend}</h4><span>Pending</span></div></div>`;
+}
+
+/* ============================================================
+   ADMIN BOOKS
+============================================================ */
+function initEmojis(){document.getElementById('emoP').innerHTML=EMOJIS.map(e=>`<div style="width:32px;height:32px;border:2px solid ${curEmoji===e?'var(--secondary)':'var(--border)'};background:${curEmoji===e?'#fff1f2':''};border-radius:6px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center" onclick="curEmoji='${e}';initEmojis()">${e}</div>`).join('')}
+
+function renderABooks(){
+  const sv=(document.getElementById('aBkSr')?.value||'').toLowerCase();
+  let f=_books.filter(b=>b.title.toLowerCase().includes(sv)||b.author.toLowerCase().includes(sv));
+  document.getElementById('bCnt').textContent=f.length;
+  document.getElementById('aBkTb').innerHTML=f.length?f.map((b,i)=>`<tr>
+    <td>${i+1}</td><td style="font-size:20px">${b.emoji||'📖'}</td>
+    <td><strong>${b.title}</strong>${b.badge?` <span style="background:#fef2f2;color:var(--secondary);padding:1px 6px;border-radius:8px;font-size:9px;font-weight:900">${b.badge}</span>`:''}</td>
+    <td>${b.author}</td>
+    <td><span style="background:#f0fdf4;color:var(--success);padding:2px 6px;border-radius:8px;font-size:9px;font-weight:900">${b.category}</span></td>
+    <td><strong style="color:var(--success)">${C} ${Number(b.price).toLocaleString()}</strong></td>
+    <td><button class="tb edit" onclick="editBook('${b.id}')"><i class="fas fa-edit"></i></button> <button class="tb del" onclick="delBook('${b.id}','${String(b.title).replace(/'/g,"\\'")}')"><i class="fas fa-trash"></i></button></td>
+  </tr>`).join(''):`<tr><td colspan="7" style="text-align:center;padding:25px;color:var(--light-text)">No books</td></tr>`;
+}
+
+async function saveBook(e){
+  e.preventDefault();
+  const eid=document.getElementById('editId').value;
+  const t=san(document.getElementById('pTitle').value.trim());
+  const a=san(document.getElementById('pAuthor').value.trim());
+  const c=document.getElementById('pCat').value;
+  const bg=san(document.getElementById('pBadge').value.trim());
+  const p=+document.getElementById('pPr').value;
+  const o=+document.getElementById('pOr').value;
+  if(!t||!a||!c||!p||!o){notify('Fill all fields!','error');return false}
+  if(p>o){notify('Sale > Original!','error');return false}
+
+  const bookData={title:t,author:a,category:c,badge:bg,price:p,original_price:o,emoji:curEmoji};
+  showLoad();
+  try{
+    if(eid){
+      const updated = await updateBook(eid, bookData);
+      const idx=_books.findIndex(b=>b.id===eid);
+      if(idx>-1) _books[idx]={..._books[idx],...updated};
+      notify('✅ Updated!');
+    }else{
+      const newBook = await addBook(bookData);
+      _books.push(newBook);
+      notify('✅ Added!');
+    }
+    resetForm();renderABooks();renderCats();renderProducts();renderAStats();
+  }catch(err){notify('Error: '+err.message,'error');console.error(err)}
+  hideLoad();
+  return false;
+}
+
+function editBook(id){
+  const b=_books.find(x=>x.id===id);if(!b)return;
+  document.getElementById('editId').value=b.id;
+  document.getElementById('pTitle').value=b.title;
+  document.getElementById('pAuthor').value=b.author;
+  document.getElementById('pCat').value=b.category;
+  document.getElementById('pBadge').value=b.badge||'';
+  document.getElementById('pPr').value=b.price;
+  document.getElementById('pOr').value=b.original_price;
+  curEmoji=b.emoji||'📖';initEmojis();
+  document.getElementById('fTitle').textContent='Edit Book';
+  document.getElementById('subTxt').textContent='Update';
+  document.getElementById('cancelBtn').style.display='flex';
+  document.querySelector('#tProducts .acard').scrollIntoView({behavior:'smooth'});
+}
+function cancelEdit(){resetForm()}
+function resetForm(){
+  document.getElementById('pForm').reset();
+  document.getElementById('editId').value='';
+  document.getElementById('fTitle').textContent='Add New Book';
+  document.getElementById('subTxt').textContent='Add Book';
+  document.getElementById('cancelBtn').style.display='none';
+  curEmoji='📖';initEmojis();
+}
+
+let delTgt=null;
+function delBook(id,title){
+  delTgt=id;
+  document.getElementById('cfmT').textContent='Delete Book?';
+  document.getElementById('cfmM').textContent=`"${title}" permanently delete hogi!`;
+  document.getElementById('cfmY').onclick=async()=>{
+    showLoad();
+    try{await deleteBook(delTgt);_books=_books.filter(b=>b.id!==delTgt);renderABooks();renderCats();renderProducts();renderAStats();notify('🗑️ Deleted!','error')}
+    catch(err){notify('Error: '+err.message,'error')}
+    hideLoad();closeCfm();
+  };
+  document.getElementById('cfmDlg').classList.add('on');
+}
+
+/* ============================================================
+   ADMIN AREAS
+============================================================ */
+function renderAreas(){
+  const tb=document.getElementById('areaTb');if(!tb)return;
+  tb.innerHTML=_areas.length?_areas.map((a,i)=>`<tr><td>${i+1}</td><td><strong>${a.name}</strong></td><td><strong>${C} ${Number(a.fee).toLocaleString()}</strong></td><td><button class="tb edit" onclick="editArea('${a.id}')"><i class="fas fa-edit"></i></button> <button class="tb del" onclick="deleteAreaFn('${a.id}')"><i class="fas fa-trash"></i></button></td></tr>`).join(''):`<tr><td colspan="4" style="text-align:center;padding:20px;color:var(--light-text)">No areas</td></tr>`;
+  populateAreaSelect();
+}
+
+async function addArea(e){
+  e.preventDefault();
+  const name=document.getElementById('areaName').value.trim();
+  const fee=Number(document.getElementById('areaFee').value);
+  if(!name||isNaN(fee)||fee<0){notify('Enter valid area & fee','error');return false}
+  showLoad();
+  try{
+    const area = await addArea(san(name),fee);
+    _areas.push(area);
+    document.getElementById('areaName').value='';
+    document.getElementById('areaFee').value='';
+    renderAreas();notify('✅ Area added!');
+  }catch(err){notify('Error: '+err.message,'error')}
+  hideLoad();return false;
+}
+
+async function editArea(id){
+  const a=_areas.find(x=>x.id===id);if(!a)return;
+  const newName=prompt('Edit Area Name:',a.name);if(newName===null)return;
+  const newFeeStr=prompt('Edit Fee (NPRs):',String(a.fee));if(newFeeStr===null)return;
+  const newFee=Number(newFeeStr);
+  if(!newName.trim()||isNaN(newFee)||newFee<0){notify('Invalid','error');return}
+  showLoad();
+  try{
+    const updated = await updateArea(id,san(newName.trim()),newFee);
+    const idx=_areas.findIndex(x=>x.id===id);if(idx>-1)_areas[idx]=updated;
+    renderAreas();notify('✅ Area updated!');
+  }catch(err){notify('Error: '+err.message,'error')}
+  hideLoad();
+}
+
+async function deleteAreaFn(id){
+  if(_areas.length<=1){notify('At least one area required','error');return}
+  if(!confirm('Delete this area?'))return;
+  showLoad();
+  try{
+    await deleteArea(id);_areas=_areas.filter(a=>a.id!==id);renderAreas();notify('🗑️ Area deleted','info');
+  }catch(err){notify('Error: '+err.message,'error')}
+  hideLoad();
+}
+
+/* ============================================================
+   ADMIN ORDERS TABLE
+============================================================ */
+function renderAOrders(){
+  const sv=(document.getElementById('aOrdSr')?.value||'').toLowerCase();
+  const fl=document.getElementById('oFilt')?.value||'all';
+  let f=_orders.filter(o=>{
+    const ms=(o.order_id||'').toLowerCase().includes(sv)||
+             (o.customer_name||'').toLowerCase().includes(sv)||
+             (o.customer_phone||'').includes(sv);
+    return ms&&(fl==='all'||o.status===fl);
+  });
+  document.getElementById('oCnt').textContent=f.length;
+  document.getElementById('aOrdTb').innerHTML=f.length?f.map(o=>{
+    const paid=o.verified?`<span class="pill paid small"><i class="fas fa-check-circle"></i> PAID</span>`:`<span class="pill unpaid small"><i class="fas fa-hourglass-half"></i> UNPAID</span>`;
+    const items=Array.isArray(o.items)?o.items:JSON.parse(o.items||'[]');
+    return`<tr>
+      <td><strong style="color:var(--secondary);cursor:pointer;text-decoration:underline" onclick="viewOD('${o.id}')">${o.order_id}</strong></td>
+      <td>${o.customer_name}</td><td>${o.customer_phone}</td><td>${o.area_name||'—'}</td>
+      <td>${items.reduce((s,i)=>s+i.qty,0)}</td>
+      <td><strong>${C} ${Number(o.subtotal).toLocaleString()}</strong></td>
+      <td><strong>${C} ${Number(o.delivery).toLocaleString()}</strong></td>
+      <td><strong>${C} ${Number(o.total).toLocaleString()}</strong></td>
+      <td style="font-size:10px">${o.payment_label}</td>
+      <td>${paid}</td>
+      <td><select class="ssel" onchange="chgSt('${o.id}',this.value)">${['Pending','Confirmed','Shipped','Delivered','Cancelled'].map(s=>`<option${o.status===s?' selected':''}>${s}</option>`).join('')}</select></td>
+      <td style="display:flex;gap:4px;flex-wrap:wrap">
+        <button class="tb view" onclick="viewOD('${o.id}')"><i class="fas fa-eye"></i></button>
+        ${o.verified?'':`<button class="tb warn" onclick="verifyPay('${o.id}')"><i class="fas fa-check"></i></button>`}
+      </td>
+    </tr>`;
+  }).join(''):`<tr><td colspan="12" style="text-align:center;padding:30px;color:var(--light-text)">No orders</td></tr>`;
+}
+
+async function chgSt(id,s){
+  showLoad();
+  try{
+    await updateOrder(id,{status:s});
+    const idx=_orders.findIndex(o=>o.id===id);if(idx>-1)_orders[idx].status=s;
+    renderAStats();notify(`→ ${s}`,'info');
+  }catch(err){notify('Error: '+err.message,'error')}
+  hideLoad();
+}
+
+async function verifyPay(id){
+  const o=_orders.find(x=>x.id===id);if(!o)return;
+  if(o.verified){notify('Already verified','info');return}
+  if(!confirm(`Verify payment?\nTransaction: ${o.trx_id||'N/A'}\nMark as PAID?`))return;
+  const vAt=new Date().toLocaleString();
+  showLoad();
+  try{
+    await updateOrder(id,{verified:true,verified_at:vAt,verified_by:'admin'});
+    const idx=_orders.findIndex(o=>o.id===id);
+    if(idx>-1){_orders[idx].verified=true;_orders[idx].verified_at=vAt}
+    renderAOrders();renderAStats();renderAna();notify('✅ Payment verified! PAID.');
+    try{viewOD(id)}catch(e){}
+  }catch(err){notify('Error: '+err.message,'error')}
+  hideLoad();
+}
+
+function viewOD(id){
+  const o=_orders.find(x=>x.id===id);if(!o)return;
+  const sc={Pending:'s-pending',Confirmed:'s-confirmed',Shipped:'s-shipped',Delivered:'s-delivered',Cancelled:'s-cancelled'}[o.status]||'s-pending';
+  const payPill=o.verified?`<span class="pill paid"><i class="fas fa-check-circle"></i> PAID (Verified)</span>`:`<span class="pill unpaid"><i class="fas fa-hourglass-half"></i> UNPAID (Not Verified)</span>`;
+  const steps=['Pending','Confirmed','Shipped','Delivered'],ci=steps.indexOf(o.status);
+  const items=Array.isArray(o.items)?o.items:JSON.parse(o.items||'[]');
+
+  document.getElementById('odHead').innerHTML=`<i class="icon fas fa-file-invoice"></i><h3>${o.order_id}</h3><p>${o.customer_name} • ${o.area_name||'—'} • ${o.payment_label}</p>`;
+  document.getElementById('odBody').innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+      <div><span style="font-size:18px;font-weight:900;color:var(--primary)">${o.order_id}</span><span class="sbadge ${sc}" style="margin-left:8px;font-size:11px;padding:4px 12px">${o.status}</span></div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${payPill}<span style="font-size:11px;color:var(--light-text)">📅 ${o.order_date}</span></div>
+    </div>
+    ${o.status!=='Cancelled'?`<div style="background:var(--bg);border-radius:10px;padding:14px;margin-bottom:16px;border:1px solid var(--border)"><div class="timeline">${steps.map((s,i)=>`<div class="tl-s ${i<ci?'done':i===ci?'now':''}">${s}</div>`).join('')}</div></div>`:''}
+    <div class="od-grid">
+      <div class="od-box">
+        <h4><i class="fas fa-user"></i> Customer</h4>
+        <div class="od-row"><span class="od-label">Name</span><span class="od-val">${o.customer_name}</span></div>
+        <div class="od-row"><span class="od-label">Phone</span><span class="od-val">${o.customer_phone}</span></div>
+        <div class="od-row"><span class="od-label">Email</span><span class="od-val">${o.customer_email||'—'}</span></div>
+        <div class="od-row"><span class="od-label">Area</span><span class="od-val">${o.area_name||'—'}</span></div>
+        <div class="od-row"><span class="od-label">Address</span><span class="od-val">${o.customer_address}</span></div>
+        ${o.customer_notes?`<div class="od-row"><span class="od-label">Notes</span><span class="od-val">${o.customer_notes}</span></div>`:''}
+      </div>
+      <div class="od-box">
+        <h4><i class="fas fa-credit-card"></i> Payment</h4>
+        <div class="od-row"><span class="od-label">Method</span><span class="od-val">${o.payment_label}</span></div>
+        <div class="od-row"><span class="od-label">Trx ID</span><span class="od-val" style="color:var(--info)">${o.trx_id||'N/A'}</span></div>
+        <div class="od-row"><span class="od-label">Verified</span><span class="od-val">${o.verified?'✅ YES — PAID':'⏳ NO — UNPAID'}</span></div>
+        ${o.verified_at?`<div class="od-row"><span class="od-label">Verified At</span><span class="od-val">${o.verified_at}</span></div>`:''}
+        <div style="margin-top:10px">${o.verified?'':`<button class="tb warn" style="padding:8px 12px;border-radius:8px" onclick="verifyPay('${o.id}')"><i class="fas fa-check"></i> Verify Payment</button>`}</div>
+      </div>
+    </div>
+    <div class="od-box" style="margin-bottom:16px">
+      <h4><i class="fas fa-box"></i> Items (${items.reduce((s,i)=>s+i.qty,0)} qty)</h4>
+      ${items.map((it,idx)=>`<div class="od-item"><span style="font-weight:900;color:var(--light-text);min-width:22px">#${idx+1}</span><span class="od-item-emoji">${it.emoji||'📖'}</span><div class="od-item-info"><div class="od-item-title">${it.title}</div><div class="od-item-meta">by ${it.author||'—'}</div></div><div style="text-align:right"><div style="font-size:10px;color:var(--light-text);font-weight:900">${C} ${Number(it.price).toLocaleString()} × ${it.qty}</div><div class="od-item-price">${C} ${(Number(it.price)*it.qty).toLocaleString()}</div></div></div>`).join('')}
+    </div>
+    <div class="od-box">
+      <h4><i class="fas fa-calculator"></i> Breakdown</h4>
+      <div class="od-row"><span>Subtotal</span><span>${C} ${Number(o.subtotal).toLocaleString()}</span></div>
+      <div class="od-row"><span>Delivery (${o.area_name||'—'})</span><span>${C} ${Number(o.delivery).toLocaleString()}</span></div>
+      ${Number(o.cod_fee)>0?`<div class="od-row"><span>COD Fee</span><span>${C} ${Number(o.cod_fee).toLocaleString()}</span></div>`:''}
+    </div>
+    <div class="od-total-bar"><span>💰 Grand Total</span><span>${C} ${Number(o.total).toLocaleString()}</span></div>
+    <div class="od-actions">
+      <button class="od-btn" style="background:var(--success);color:#fff" onclick="chgStDet('${o.id}','Confirmed')"><i class="fas fa-check"></i> Confirm</button>
+      <button class="od-btn" style="background:var(--info);color:#fff" onclick="chgStDet('${o.id}','Shipped')"><i class="fas fa-truck"></i> Ship</button>
+      <button class="od-btn" style="background:#059669;color:#fff" onclick="chgStDet('${o.id}','Delivered')"><i class="fas fa-box-open"></i> Delivered</button>
+      <button class="od-btn" style="background:var(--danger);color:#fff" onclick="chgStDet('${o.id}','Cancelled')"><i class="fas fa-ban"></i> Cancel</button>
+      <button class="od-btn" style="background:#25D366;color:#fff" onclick="sendOrderWA('${o.id}')"><i class="fab fa-whatsapp"></i> Send to Customer</button>
+      <button class="od-btn" style="background:var(--info);color:#fff" onclick="openInvoice('${o.id}')"><i class="fas fa-file-invoice"></i> Invoice</button>
+      <button class="od-btn" style="background:var(--primary);color:#fff" onclick="openInvoice('${o.id}',true)"><i class="fas fa-download"></i> Download PDF</button>
+    </div>`;
+  openMod('ordDetMod');
+}
+
+async function chgStDet(id,s){
+  showLoad();
+  try{
+    await updateOrder(id,{status:s});
+    const idx=_orders.findIndex(o=>o.id===id);if(idx>-1)_orders[idx].status=s;
+    viewOD(id);renderAOrders();renderAStats();renderAna();notify(`→ ${s}`,'info');
+  }catch(err){notify('Error: '+err.message,'error')}
+  hideLoad();
+}
+
+/* ============================================================
+   ANALYTICS
+============================================================ */
+function renderAna(){
+  const verified=_orders.filter(o=>o.verified);
+  const unverified=_orders.filter(o=>!o.verified);
+  const rev=_orders.filter(o=>o.status==='Delivered'&&o.verified).reduce((s,o)=>s+Number(o.total),0);
+
+  const pm={};
+  _orders.forEach(o=>{pm[o.payment_label]=(pm[o.payment_label]||0)+1});
+
+  const tb={};
+  _orders.forEach(o=>{
+    const items=Array.isArray(o.items)?o.items:JSON.parse(o.items||'[]');
+    items.forEach(i=>{tb[i.title]=(tb[i.title]||0)+i.qty});
+  });
+  const ts=Object.entries(tb).sort((a,b)=>b[1]-a[1]).slice(0,5);
+
+  const areas={};
+  _orders.forEach(o=>{areas[o.area_name||'—']=(areas[o.area_name||'—']||0)+1});
+
+  document.getElementById('anaBody').innerHTML=`
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+      <div class="o-sum"><h4 style="font-size:12px;margin-bottom:8px;font-weight:900">📊 Payment Overview</h4>
+        <p style="font-size:11px;font-weight:900">✅ Verified (Paid): <strong>${verified.length}</strong></p>
+        <p style="font-size:11px;font-weight:900">⏳ Unverified (Unpaid): <strong>${unverified.length}</strong></p>
+        <p style="font-size:11px;font-weight:900">💰 Revenue: <strong>${C} ${rev.toLocaleString()}</strong></p>
+        <p style="font-size:11px;font-weight:900">📦 Total Orders: <strong>${_orders.length}</strong></p>
+      </div>
+      <div class="o-sum"><h4 style="font-size:12px;margin-bottom:8px;font-weight:900">💳 Payment Methods</h4>
+        ${Object.entries(pm).map(([k,v])=>`<p style="font-size:11px;font-weight:900">${k}: <strong>${v}</strong></p>`).join('')||'<p style="color:var(--light-text)">No data</p>'}
+      </div>
+      <div class="o-sum"><h4 style="font-size:12px;margin-bottom:8px;font-weight:900">🏆 Top Books</h4>
+        ${ts.map(([t,q],i)=>`<p style="font-size:11px;font-weight:900">${i+1}. ${t} <strong>(${q})</strong></p>`).join('')||'<p style="color:var(--light-text)">No data</p>'}
+      </div>
+      <div class="o-sum"><h4 style="font-size:12px;margin-bottom:8px;font-weight:900">🗺️ Orders by Area</h4>
+        ${Object.entries(areas).sort((a,b)=>b[1]-a[1]).map(([n,q])=>`<p style="font-size:11px;font-weight:900">${n}: <strong>${q}</strong></p>`).join('')||'<p style="color:var(--light-text)">No data</p>'}
+      </div>
+    </div>`;
+}
+
+/* ============================================================
+   INIT
+============================================================ */
+async function init(){
+  initCreds();initEmojis();showLoad();
+
+  // Test Supabase connection
+  const {data:healthCheck,error:hErr} = await sb.from('books').select('id',{count:'exact',head:true}).limit(1);
+  const dot=document.getElementById('sbDot');
+  if(!hErr && dot) dot.style.background='#3ecf8e';
+  else if(dot) dot.style.background='#f87171';
+
+  try{
+    await Promise.all([loadBooks(),loadAreas()]);
+    await loadOrders();
+    hideLoad();
+
+    renderCats();renderProducts();populateAreaSelect();updCart();
+
+    const ph=JSON.parse(localStorage.getItem('kg_ph')||'[]');
+    const mc=_orders.filter(o=>ph.includes(o.customer_phone)).length;
+    if(mc){document.getElementById('myOrdDot').style.display='flex';document.getElementById('myOrdDot').textContent=mc}
+
+    if(sessionStorage.getItem('kg_s')==='1'){startSes();showAdmin()}
+
+  }catch(err){
+    hideLoad();
+    notify('⚠️ Supabase error! Check URL & Key.','error');
+    console.error('Init error:',err);
+    renderCats();renderProducts();populateAreaSelect();updCart();
+  }
+
+  document.addEventListener('keydown',e=>{
+    if(e.ctrlKey&&e.shiftKey&&e.key==='A'){e.preventDefault();(sessionStorage.getItem('kg_s')==='1')?showAdmin():openLogin()}
+    if(e.key==='Escape'){['checkMod','myOrdMod','trkMod','loginMod','ordDetMod','invMod'].forEach(closeMod);closeCfm();if(document.getElementById('cartSide').classList.contains('on'))toggleCart()}
+  });
+}
+
+init();
+</script>
+</body>
+</html>
